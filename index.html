@@ -257,6 +257,31 @@ img,svg{max-width:100%}
   }
 }
 }
+ /* ===== Họa tiết gấm trôi chậm ===== */
+@keyframes gam-troi{
+  from{background-position:0 0}
+  to{background-position:128px 0}      /* bội số của 32px nên vòng lặp liền mạch, không bị giật */
+}
+@keyframes gam-troi-nguoc{
+  from{background-position:128px 0}
+  to{background-position:0 0}
+}
+
+nav,
+footer{animation:gam-troi 40s linear infinite}
+
+/* hai dải gấm trôi ngược chiều nhau cho có chiều sâu */
+.band{animation:gam-troi-nguoc 50s linear infinite}
+main + .band{animation-name:gam-troi}
+
+/* điện thoại: chạy chậm hơn một chút cho đỡ tốn pin */
+@media(max-width:600px){
+  nav,footer{animation-duration:60s}
+  .band{animation-duration:70s}
+}
+
+/* tab ẩn thì tắt để máy đỡ nặng */
+@media print{nav,footer,.band{animation:none}}
 </style>
 </head>
 <body>
