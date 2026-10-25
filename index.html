@@ -282,6 +282,39 @@ main + .band{animation-name:gam-troi}
 
 /* tab ẩn thì tắt để máy đỡ nặng */
 @media print{nav,footer,.band{animation:none}}
+ /* ===== Sửa độ rõ chữ trên dải gấm ===== */
+nav,
+footer{
+  background-color:var(--red);
+  background-image:
+    linear-gradient(rgba(90,12,28,.86),rgba(90,12,28,.86)),   /* lớp phủ làm dịu họa tiết */
+    var(--brocade);
+}
+
+/* chữ menu sáng, rõ, có bóng nhẹ */
+.logo{color:#FFF1C9;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.links button{color:#FFF3DA;text-shadow:0 1px 2px rgba(0,0,0,.55)}
+.links button:hover{background:rgba(255,255,255,.1);color:#fff}
+.links button.active{color:#FFE08A;border-color:#FFE08A;font-weight:700}
+
+/* chân trang */
+footer{color:#FFF1C9;text-shadow:0 1px 2px rgba(0,0,0,.55)}
+
+/* dải gấm trang trí (không có chữ) vẫn giữ họa tiết sáng rõ */
+.band{background-color:var(--red)}
+
+/* điện thoại: dừng hiệu ứng trôi ở vùng có chữ, phủ đậm hơn */
+@media(max-width:600px){
+  nav,footer{
+    animation:none;
+    background-image:
+      linear-gradient(rgba(90,12,28,.92),rgba(90,12,28,.92)),
+      var(--brocade);
+  }
+  .links{background:rgba(0,0,0,.18)}
+  .links button{padding:10px 14px}
+  .band{animation-duration:80s}
+}
 </style>
 </head>
 <body>
