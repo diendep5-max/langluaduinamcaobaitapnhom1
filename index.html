@@ -290,30 +290,40 @@ footer{
     linear-gradient(rgba(90,12,28,.86),rgba(90,12,28,.86)),   /* lớp phủ làm dịu họa tiết */
     var(--brocade);
 }
+/* ===== Sửa độ rõ chữ trên dải gấm ===== */
+nav,
+footer {
+  background-color: var(--red);
+  background-image:
+    /* Giảm lớp phủ từ .86 xuống .45 để họa tiết gấm hiện lên rõ hơn nhưng vẫn dịu mắt */
+    linear-gradient(rgba(90,12,28,.45), rgba(90,12,28,.45)),   
+    var(--brocade);
+}
 
 /* chữ menu sáng, rõ, có bóng nhẹ */
-.logo{color:#FFF1C9;text-shadow:0 1px 3px rgba(0,0,0,.6)}
-.links button{color:#FFF3DA;text-shadow:0 1px 2px rgba(0,0,0,.55)}
-.links button:hover{background:rgba(255,255,255,.1);color:#fff}
-.links button.active{color:#FFE08A;border-color:#FFE08A;font-weight:700}
+.logo {color: #FFF1C9; text-shadow: 0 1px 3px rgba(0,0,0,.6)}
+.links button {color: #FFF3DA; text-shadow: 0 1px 2px rgba(0,0,0,.55)}
+.links button:hover {background: rgba(255,255,255,.1); color: #fff}
+.links button.active {color: #FFE08A; border-color: #FFE08A; font-weight: 700}
 
 /* chân trang */
-footer{color:#FFF1C9;text-shadow:0 1px 2px rgba(0,0,0,.55)}
+footer {color: #FFF1C9; text-shadow: 0 1px 2px rgba(0,0,0,.55)}
 
 /* dải gấm trang trí (không có chữ) vẫn giữ họa tiết sáng rõ */
-.band{background-color:var(--red)}
+.band {background-color: var(--red)}
 
-/* điện thoại: dừng hiệu ứng trôi ở vùng có chữ, phủ đậm hơn */
-@media(max-width:600px){
-  nav,footer{
-    animation:none;
+/* điện thoại: dừng hiệu ứng trôi ở vùng có chữ, phủ đậm hơn desktop một chút để dễ đọc nhưng vẫn nhạt hơn bản cũ */
+@media(max-width: 600px){
+  nav, footer {
+    animation: none;
     background-image:
-      linear-gradient(rgba(90,12,28,.92),rgba(90,12,28,.92)),
+      /* Giảm từ .92 xuống .65 để họa tiết gấm trên điện thoại hiện rõ hơn */
+      linear-gradient(rgba(90,12,28,.65), rgba(90,12,28,.65)),
       var(--brocade);
   }
-  .links{background:rgba(0,0,0,.18)}
-  .links button{padding:10px 14px}
-  .band{animation-duration:80s}
+  .links {background: rgba(0,0,0,.18)}
+  .links button {padding: 10px 14px}
+  .band {animation-duration: 80s}
 }
 </style>
 </head>
