@@ -91,11 +91,13 @@ nav{position:sticky;top:0;z-index:40;background:var(--red);background-image:var(
 .side .sub{font:italic 18px 'Cormorant Garamond';margin-bottom:16px;color:var(--jade)}
 .body{background:#fffdf7;border:1px solid var(--gold2);padding:30px;position:relative}
 .body::before{content:"";position:absolute;inset:6px;border:1px dashed var(--gold2);pointer-events:none}
-.body p.t{font-size:16px;margin-bottom:18px}
+.body p.t{font-size:16px;margin-bottom:18px;text-align:justify;text-justify:inter-word}
 .data{background:var(--paper);padding:16px 20px;margin-bottom:18px}
 .data h4{font:600 12px 'Be Vietnam Pro';letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px}
 .data li{list-style:none;display:flex;justify-content:space-between;gap:12px;border-bottom:1px dotted var(--gold);padding:4px 0;font-size:14px;font-weight:500}
 .data li:last-child{border:0}
+.data li span:first-child{min-width:0}
+.data li span:last-child{flex-shrink:0;text-align:right}
 .crit{border-left:4px solid var(--red);background:#8e22340d;padding:12px 18px;margin-bottom:18px}
 .crit h4{font-size:18px;color:var(--red)}.crit p{font:italic 500 16px 'Lora',serif;color:var(--red2)}
 .more h4{font:600 12px 'Be Vietnam Pro';letter-spacing:.2em;text-transform:uppercase;margin-bottom:6px}
@@ -105,6 +107,7 @@ nav{position:sticky;top:0;z-index:40;background:var(--red);background-image:var(
 .gal .fr{aspect-ratio:3/4}
 @media(max-width:700px){.gal{grid-template-columns:1fr}}
 footer{background:var(--red);background-image:var(--brocade);color:var(--gold2);text-align:center;padding:32px 20px;border-top:3px solid var(--gold);font-size:14px}
+.footer-description{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;line-height:1.3;margin-top:6px}
 /* audio */
 #audio-btn{position:fixed;right:20px;bottom:20px;z-index:50;display:flex;align-items:center;gap:8px;cursor:pointer;background:var(--red);color:var(--gold2);border:2px solid var(--gold);border-radius:999px;padding:12px;box-shadow:0 6px 18px rgba(0,0,0,.3);transition:.3s}
 #audio-btn:hover{background:var(--jade)}
@@ -325,10 +328,49 @@ footer {color: #FFF1C9; text-shadow: 0 1px 2px rgba(0,0,0,.55)}
   .links button {padding: 10px 14px}
   .band {animation-duration: 80s}
 }
+/* Đợt sửa 1: căn đều nội dung và kiểm soát dòng tiêu đề trên máy tính. */
+.hero-g>div,.framework-intro>div{min-width:0}
+.hero .quote,.heritage-copy p,.framework-copy p{text-align:justify;text-justify:inter-word}
+.community-question{max-width:1040px;margin:0 auto 10px;text-transform:uppercase}
+.community-question span{display:block}
+.framework-heading{font-size:clamp(23px,2vw,32px);color:var(--red);margin:8px 0 16px;text-transform:uppercase}
+.heritage-copy h2,.methodology h3{text-transform:uppercase}
+#pillars ul{list-style:none;padding-left:0}
+#sol ul{list-style:none;padding-left:0}
+#sol .card{display:flex;flex-direction:column}
+#sol h3{min-height:2.4em}
+#sol ul{margin-top:0;text-align:justify;text-justify:inter-word}
+#sol li+li{margin-top:10px}
+#results .lead,#solutions .lead,.results-cards .card>p:last-child{text-align:justify;text-justify:inter-word}
+.conclusion-text{max-width:1080px;margin:14px auto 16px;font-size:15px;line-height:1.8;text-align:justify;text-justify:inter-word;text-wrap:pretty}
+.conclusion-ending{white-space:nowrap}
+@media(max-width:820px){#sol h3{min-height:0}}
+.assessment-model h3{text-transform:uppercase}
+.model-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:24px 0}
+.model-column{display:flex;flex-direction:column;gap:12px;min-width:0}
+.model-column h4{background:var(--red);color:var(--gold2);font-size:24px;letter-spacing:.06em;padding:12px 16px}
+.model-definition{flex:1;border:1px solid var(--gold2);background:var(--paper);padding:18px;font-size:14px;text-align:justify;text-justify:inter-word}
+.model-quote{font-style:italic;color:var(--red2);margin-top:16px;font-size:clamp(10px,1.05vw,14px)}
+.methodology p{text-align:justify;text-justify:inter-word}
+@media(max-width:700px){.model-columns{grid-template-columns:1fr}.model-quote{font-size:14px}}
+#audio-text{max-width:180px;padding-right:6px}
+@media(min-width:1100px){
+ .hero h1 span{font-size:clamp(30px,2.7vw,44px);white-space:nowrap}
+ .hero .tag{font-size:18px;white-space:nowrap}
+ .framework-intro{grid-template-columns:.4fr 1.6fr;gap:32px!important}
+ .framework-heading{font-size:clamp(25px,1.7vw,30px);white-space:nowrap}
+ .model-quote{white-space:nowrap}
+ .community-question span{white-space:nowrap}
+}
+@media(max-width:600px){
+ .community-question span{display:inline}
+ .community-question span+span::before{content:' '}
+ #audio-text{display:inline;font-size:12px}
+}
 </style>
 </head>
 <body>
-<audio id="bg-music" loop preload="none" src="./nhac-nen.mp3"></audio>
+<audio id="bg-music" loop preload="auto" src="./nhac-nen.mp3?v=2d1a00ee2f79"></audio>
 
 <button id="audio-btn" onclick="toggleAudio()" aria-label="Phát nhạc nền">
  <svg id="i-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21"/></svg>
@@ -349,7 +391,7 @@ footer {color: #FFF1C9; text-shadow: 0 1px 2px rgba(0,0,0,.55)}
    <div class="eyebrow" style="text-align:left">Thêu hoa · Dệt gấm · Gìn giữ nghề</div>
    <h1 style="margin-top:12px">ĐÁNH GIÁ SỰ THAM GIA CỦA CỘNG ĐỒNG TRONG BẢO TỒN VÀ PHÁT TRIỂN <span>DI SẢN LÀNG LỤA ĐŨI NAM CAO</span></h1>
    <p class="tag">Lắng nghe cộng đồng – Gìn giữ nghề truyền thống – Hướng tới phát triển bền vững.</p>
-   <p class="quote">“Nghề dệt đũi Nam Cao không chỉ được gìn giữ bằng những kỹ thuật thủ công, mà còn gắn với tri thức nghề, sinh kế và sự tiếp nối giữa các thế hệ. Nghiên cứu đặt ra câu hỏi về vai trò của cộng đồng trong quá trình bảo tồn và phát triển di sản: người dân đang tham gia ở mức độ nào, và tiếng nói của họ có được xem xét trong những quyết định liên quan đến tương lai làng nghề hay không?”</p>
+   <p class="quote">“Nghề dệt đũi Nam Cao không chỉ được gìn giữ bằng những kỹ thuật thủ công, mà còn gắn với tri thức nghề, sinh kế và sự tiếp nối giữa các thế hệ. Nghiên cứu đặt ra câu hỏi về vai trò của cộng đồng trong quá trình bảo tồn và phát triển di sản: Người dân đang tham gia ở mức độ nào, và tiếng nói của họ có được xem xét trong những quyết định liên quan đến tương lai làng nghề hay không?”</p>
    <div class="btns"><button class="btn" onclick="switchTab('framework')">Khám phá nghiên cứu →</button><button class="btn o" onclick="switchTab('results')">Xem kết quả đánh giá</button></div>
   </div>
   <div class="collage">
@@ -359,7 +401,7 @@ footer {color: #FFF1C9; text-shadow: 0 1px 2px rgba(0,0,0,.55)}
   </div>
  </div></div>
  <div class="band"></div>
- <div class="sec"><div class="wrap grid g2" style="align-items:center;gap:56px">
+ <div class="sec heritage-copy"><div class="wrap grid g2" style="align-items:center;gap:56px">
   <div>
    <div class="eyebrow" style="text-align:left">Di sản sống</div>
    <h2 style="font-size:36px;color:var(--red);margin:8px 0 16px">Di sản không chỉ nằm trong sản phẩm</h2>
@@ -369,7 +411,7 @@ footer {color: #FFF1C9; text-shadow: 0 1px 2px rgba(0,0,0,.55)}
   <div class="fr stitch" style="aspect-ratio:4/5" data-img="trung_canh_lua"></div>
  </div></div>
  <div style="background:var(--paper)" class="sec"><div class="wrap">
-  <h2 class="title" style="max-width:760px;margin:0 auto 10px">Sự tham gia của cộng đồng có thực sự chuyển hóa thành quyền ảnh hưởng đến tương lai di sản?</h2>
+  <h2 class="title community-question"><span>CỘNG ĐỒNG GIỮ VAI TRÒ NHƯ THẾ NÀO</span> <span>TRONG QUÁ TRÌNH BẢO TỒN VÀ PHÁT TRIỂN DI SẢN?</span></h2>
   <div class="orn">❖</div>
   <div class="grid g3" style="margin-top:28px">
    <div class="card"><h3>HIỆN DIỆN</h3><p style="font-size:14px">Cộng đồng có tham gia các hoạt động liên quan đến di sản?</p></div>
@@ -381,25 +423,28 @@ footer {color: #FFF1C9; text-shadow: 0 1px 2px rgba(0,0,0,.55)}
 
 <!-- KHUNG ĐÁNH GIÁ -->
 <section id="framework" class="tab"><div class="wrap sec">
- <div class="grid g2" style="align-items:center;gap:48px;margin-bottom:56px">
+ <div class="grid g2 framework-intro" style="align-items:center;gap:48px;margin-bottom:56px">
   <div class="fr arch" style="aspect-ratio:3/4;max-width:380px;margin:auto;width:100%" data-img="hoa_sen"></div>
-  <div>
+  <div class="framework-copy">
    <div class="eyebrow" style="text-align:left">Khung đánh giá</div>
-   <h2 style="font-size:36px;color:var(--red);margin:8px 0 16px">Đánh giá sự tham gia từ nhiều chiều cạnh</h2>
-   <p style="margin-bottom:12px">Nghiên cứu xây dựng khung đánh giá gồm bốn trụ cột nhằm xem xét các điều kiện thúc đẩy hoặc cản trở sự tham gia, hình thức và mức độ chủ động của cộng đồng, vai trò của người dân trong quản trị và những tác động đối với tính bền vững của nghề dệt đũi.</p>
-   <p>Khung đánh giá không chỉ xem xét việc cộng đồng có tham gia hoạt động hay không, mà còn chú ý đến khả năng đóng góp, bày tỏ ý kiến và ảnh hưởng đến các quyết định liên quan đến di sản.</p>
+   <h2 class="framework-heading">Đánh giá sự tham gia của cộng đồng từ nhiều khía cạnh</h2>
+   <p style="margin-bottom:12px">Nghiên cứu xây dựng khung đánh giá gồm bốn trụ cột, tập trung xem xét các điều kiện thúc đẩy hoặc cản trở sự tham gia, hình thức và mức độ chủ động của cộng đồng, vai trò của người dân trong quản trị di sản, cũng như những tác động đối với việc duy trì và phát huy nghề dệt đũi.</p>
+   <p>Khung đánh giá không chỉ xem xét cộng đồng có tham gia các hoạt động bảo tồn hay không, mà còn chú trọng vai trò của người dân trong việc đóng góp tri thức, bày tỏ ý kiến và tham gia ra quyết định liên quan đến di sản.</p>
   </div>
  </div>
  <div class="grid g2" id="pillars"></div>
- <div class="card" style="margin:48px 0;text-align:center">
+ <div class="card assessment-model" style="margin:48px 0;text-align:center">
   <h3>Mô hình đánh giá</h3>
-  <div class="flow"><b>HIỆN DIỆN</b><i>✦</i><b>ĐÓNG GÓP</b><i>✦</i><b>ẢNH HƯỞNG</b></div>
-  <p style="font-size:14px;max-width:680px;margin:auto">Hiện diện cho biết cộng đồng có mặt hoặc tham gia hoạt động.<br>Đóng góp cho biết cộng đồng cung cấp công sức, kỹ năng, tri thức hoặc nguồn lực.<br>Ảnh hưởng cho biết cộng đồng có khả năng tác động đến kế hoạch, quyết định và định hướng phát triển.</p>
-  <p class="lora" style="font-style:italic;color:var(--red2);margin-top:16px">“Có mặt trong hoạt động không đồng nghĩa với việc có tiếng nói; đóng góp công sức hoặc tri thức cũng không tự động đồng nghĩa với quyền tham gia quyết định.”</p>
+  <div class="model-columns">
+   <div class="model-column"><h4>HIỆN DIỆN</h4><p class="model-definition">Hiện diện cho biết cộng đồng có mặt hoặc tham gia hoạt động.</p></div>
+   <div class="model-column"><h4>ĐÓNG GÓP</h4><p class="model-definition">Đóng góp cho biết cộng đồng cung cấp công sức, kỹ năng, tri thức hoặc nguồn lực.</p></div>
+   <div class="model-column"><h4>ẢNH HƯỞNG</h4><p class="model-definition">Ảnh hưởng cho biết cộng đồng có khả năng tác động đến kế hoạch, quyết định và định hướng phát triển.</p></div>
+  </div>
+  <p class="lora model-quote">“Có mặt trong hoạt động không đồng nghĩa với việc có tiếng nói; đóng góp công sức hoặc tri thức cũng không tự động đồng nghĩa với quyền tham gia quyết định.”</p>
  </div>
- <div class="grid g2" style="align-items:center;gap:40px;grid-template-columns:1.4fr .6fr">
+ <div class="grid g2 methodology" style="align-items:center;gap:40px;grid-template-columns:1.4fr .6fr">
   <div><h3 style="font-size:26px;color:var(--red);margin-bottom:10px">Phương pháp nghiên cứu và giới hạn dữ liệu</h3>
-  <p style="font-size:14px">Nghiên cứu sử dụng cách tiếp cận hỗn hợp, kết hợp phỏng vấn nghệ nhân, lắng nghe chia sẻ của người làm nghề, thảo luận nhóm và xem xét tài liệu địa phương. Các kết quả định lượng được trình bày theo bộ chỉ báo và kết quả tự đánh giá của nhóm nghiên cứu. Các điểm số cần được đọc cùng chỉ báo và phương pháp chấm điểm tương ứng. Những chỉ báo chưa được xác nhận đầy đủ phải được đối chiếu với bảng chấm điểm gốc trước khi công bố. Không mặc nhiên xem kết quả tự đánh giá là đại diện cho toàn bộ cộng đồng.</p></div>
+  <p style="font-size:14px">Nghiên cứu sử dụng phương pháp hỗn hợp, kết hợp phỏng vấn nghệ nhân, trao đổi với người làm nghề, thảo luận nhóm và phân tích tài liệu địa phương để đánh giá sự tham gia của cộng đồng trong bảo tồn nghề dệt đũi và phát triển du lịch di sản tại Nam Cao. Việc đánh giá tập trung vào bốn khía cạnh: điều kiện tham gia, cấp độ tham gia, vai trò trong quản trị di sản và tác động đối với tính bền vững. Kết quả được phân tích dựa trên bộ chỉ báo tương ứng. Những điểm số chưa được xác minh cần được đối chiếu lại với dữ liệu gốc trước khi công bố. Các kết quả này không mặc nhiên đại diện cho toàn bộ cộng đồng.</p></div>
   <div class="fr stitch" style="aspect-ratio:3/2" data-img="tamnhu_va_ba"></div>
  </div>
 </div></section>
@@ -407,10 +452,10 @@ footer {color: #FFF1C9; text-shadow: 0 1px 2px rgba(0,0,0,.55)}
 <!-- KẾT QUẢ -->
 <section id="results" class="tab"><div class="wrap sec">
  <div class="eyebrow">Thang điểm 0–5</div>
- <h2 class="title" style="margin-top:6px">Kết quả tự đánh giá sau điền dã</h2><div class="orn">❖</div>
+ <h2 class="title" style="margin-top:6px">KẾT QUẢ TỰ ĐÁNH GIÁ SAU ĐIỀN DÃ</h2><div class="orn">❖</div>
  <p class="lead">“Các điểm số dưới đây phản ánh kết quả tự đánh giá của nhóm nghiên cứu theo thang điểm 5. Dữ liệu được sử dụng để nhận diện những chỉ báo nổi bật và những khía cạnh cần tiếp tục xem xét, không mặc nhiên đại diện cho toàn bộ cộng đồng Nam Cao.”</p>
  <div class="bars" id="bars"></div>
- <div class="grid g3" style="margin-bottom:40px">
+ <div class="grid g3 results-cards" style="margin-bottom:40px">
   <div class="card"><h3>Nhận thức về giá trị nghề</h3><div class="score">4,0<small>/5</small></div><p style="font-size:14px">Chỉ báo có điểm tự đánh giá cao nhất trong bảng dữ liệu được cung cấp. Đây là khía cạnh đáng chú ý khi xem xét động lực tham gia của cộng đồng.</p></div>
   <div class="card"><h3>Điều kiện tham gia</h3><p style="font-weight:500;background:var(--paper);padding:6px 10px;margin:8px 0">Minh bạch: 2,8/5 | Cơ hội: 2,7/5</p><p style="font-size:14px">Các chỉ báo này có điểm thấp hơn chỉ báo về nhận thức giá trị nghề. Kết quả gợi mở việc cần xem xét kỹ hơn những điều kiện thực tế để người dân có thể tham gia vào hoạt động bảo tồn.</p></div>
   <div class="card"><h3 style="color:var(--jade)">Tiếng nói trong quyết định</h3><div class="score" style="color:var(--jade)">2,4<small>/5</small></div><p style="font-size:14px">Đây là cơ sở để đặt câu hỏi về cơ hội tham gia quản trị của cộng đồng, đồng thời cần đối chiếu với bằng chứng điền dã.</p></div>
@@ -421,8 +466,8 @@ footer {color: #FFF1C9; text-shadow: 0 1px 2px rgba(0,0,0,.55)}
 
 <!-- PHÂN TÍCH -->
 <section id="analysis" class="tab"><div class="wrap sec">
- <div class="eyebrow">Phân tích & Phản biện</div>
- <h2 class="title" style="margin-top:6px">Từ tham gia đến ảnh hưởng</h2><div class="orn">❖</div>
+ <div class="eyebrow">Phân tích & Diễn giải</div>
+ <h2 class="title" style="margin-top:6px">THEO 04 TRỤ CỘT ĐO LƯỜNG</h2><div class="orn">❖</div>
  <div style="height:36px"></div>
  <div id="analysis-list"></div>
 </div></section>
@@ -430,21 +475,22 @@ footer {color: #FFF1C9; text-shadow: 0 1px 2px rgba(0,0,0,.55)}
 <!-- GIẢI PHÁP -->
 <section id="solutions" class="tab"><div class="wrap sec">
  <div class="eyebrow">Giải pháp & Kết luận</div>
- <h2 class="title" style="margin-top:6px">Hướng tới sự tham gia có tiếng nói</h2><div class="orn">❖</div>
- <p class="lead" style="margin-bottom:40px">“Các gợi ý dưới đây xuất phát từ những chỉ báo nổi bật và câu hỏi phản biện của nghiên cứu, cần được thảo luận cùng cộng đồng trước khi áp dụng.”</p>
+ <h2 class="title" style="margin-top:6px">HƯỚNG TỚI SỰ THAM GIA CỦA CỘNG ĐỒNG</h2><div class="orn">❖</div>
+ <p class="lead" style="margin-bottom:40px">“Các định hướng dưới đây xuất phát từ kết quả đánh giá ban đầu về sự tham gia của cộng đồng trong nghề tơ đũi Nam Cao. Việc triển khai cần được trao đổi, điều chỉnh cùng người dân, nghệ nhân và các bên liên quan.”</p>
  <div class="grid g2" id="sol"></div>
  <div class="gal" style="margin:56px 0">
   <div class="fr arch" data-img="bst_khan_hoa_sen"></div>
   <div class="fr arch" data-img="toan_canh"></div>
   <div class="fr arch" data-img="hoa_sen"></div>
  </div>
- <div class="card" style="text-align:center"><h3>Kết luận</h3>
-  <p style="max-width:720px;margin:10px auto 16px">Kết quả tự đánh giá cho thấy cộng đồng Nam Cao có nhận thức khá rõ về giá trị của nghề, nhưng điều kiện tham gia và khả năng ảnh hưởng đến quyết định vẫn là những khía cạnh cần quan tâm hơn. Bảo tồn di sản bền vững cần đi từ hiện diện, đến đóng góp, và cuối cùng là ảnh hưởng thực chất.</p>
-  <p class="lora" style="font-style:italic;color:var(--red2)">“Lắng nghe cộng đồng – Gìn giữ nghề truyền thống – Hướng tới phát triển bền vững.”</p></div>
+ <div class="card" style="text-align:center"><h3>KẾT LUẬN</h3>
+  <p class="conclusion-text">Kết quả đánh giá ban đầu cho thấy cộng đồng Nam Cao có sự gắn bó và nhận thức tương đối rõ về giá trị của nghề tơ đũi truyền thống. Tuy nhiên, sự tham gia vẫn chủ yếu tập trung vào thực hành nghề và đóng góp lao động; cơ hội tham gia xây dựng kế hoạch, tiếp cận nguồn lực và ảnh hưởng đến các quyết định chung còn hạn chế. Bên cạnh đó, việc bảo đảm sinh kế và thu hút thế hệ trẻ nối nghề là những vấn đề cần được quan tâm để duy trì sức sống của di sản.</p>
+  <p class="conclusion-text">Vì vậy, bảo tồn và phát huy nghề tơ đũi Nam Cao cần gắn việc gìn giữ kỹ thuật truyền thống với cải thiện điều kiện tham gia, tăng cường tiếng nói của người làm nghề và theo dõi lợi ích sinh kế. Các giải pháp cần được tiếp tục trao đổi, điều chỉnh cùng cộng đồng và đánh giá qua quá trình triển khai thực tế.</p>
+  <p class="lora" style="font-style:italic;color:var(--red2)">“Lắng nghe cộng đồng - Tăng cường tiếng nói - Gìn giữ nghề, hướng tới phát triển bền vững.”</p></div>
 </div></section>
 </main>
 <div class="band"></div>
-<footer><div class="serif" style="font-size:20px;letter-spacing:.12em;text-transform:uppercase">Nam Cao Heritage</div>Đánh giá sự tham gia của cộng đồng – Di sản Làng lụa đũi Nam Cao</footer>
+<footer><div class="serif" style="font-size:20px;letter-spacing:.12em;text-transform:uppercase">Nam Cao Heritage</div><div class="footer-description">Đánh giá sự tham gia của cộng đồng – Di sản Làng lụa đũi Nam Cao</div></footer>
 
 <script>
 /* ====== TÊN ẢNH: sửa tại đây nếu file trên GitHub đặt tên khác ====== */
@@ -460,50 +506,50 @@ const PIL=[
   sub:'(MOA)',desc:'Đánh giá động lực, cơ hội và năng lực có thể thúc đẩy hoặc cản trở người dân.',
   li:['<b>Động lực:</b> Nhận thức giá trị nghề, kỳ vọng lợi ích.','<b>Cơ hội:</b> Khả năng tiếp cận thông tin, hoạt động, cuộc họp.','<b>Năng lực:</b> Khả năng tiếp cận vốn, kỹ năng, thời gian.'],
   q:'Người dân có đủ động lực, cơ hội và năng lực để tham gia thực chất vào quá trình bảo tồn và phát triển di sản hay không?',
-  text:'Nhận thức về giá trị nghề và kỳ vọng về lợi ích là những khía cạnh cần thiết để xem xét động lực tham gia. Bên cạnh đó, khả năng tiếp cận thông tin, vốn, kỹ năng và thời gian có thể ảnh hưởng đến cơ hội tham gia của người làm nghề. Kết quả tự đánh giá gợi ý cần quan tâm hơn đến điều kiện để cộng đồng duy trì sự tham gia, thay vì chỉ xem xét mong muốn bảo tồn.',
+  analysisTitle:'Điều kiện tham gia (MOA)',
+  text:['Cộng đồng có động lực gìn giữ nghề, thể hiện qua điểm nhận thức về giá trị di sản đạt 4,0/5 và kỳ vọng lợi ích đạt 3,7/5. Tuy nhiên, những điều kiện hỗ trợ người dân tham gia còn hạn chế: công khai thông tin đạt 2,8/5; cơ hội tham gia đạt 3,0/5; khả năng tiếp cận vốn và kỹ năng du lịch, thị trường đạt 2,7/5. Chỉ báo về rào cản thời gian và tâm lý đạt 2,9/5.',
+   'Các kết quả này cho thấy mong muốn giữ nghề chưa đi cùng với điều kiện tham gia tương ứng. Người dân có động lực, nhưng việc tiếp cận thông tin, nguồn lực và sắp xếp thời gian vẫn ảnh hưởng đến khả năng tham gia vào các hoạt động bảo tồn và phát triển di sản.'],
   data:[['Nhận thức về giá trị nghề','4,0/5'],['Kỳ vọng về lợi ích','3,7/5'],['Minh bạch thông tin','2,8/5'],['Cơ hội tham gia, vốn và kỹ năng','2,7/5']],
-  crit:'Có động lực gìn giữ nghề đã đủ để bảo đảm cộng đồng có thể tham gia lâu dài hay chưa?',
-  more:['Người dân có tiếp cận được thông tin về kế hoạch và hoạt động liên quan đến di sản không?','Các hộ sản xuất có điều kiện tiếp cận vốn và kỹ năng cần thiết không?','Những yếu tố về thời gian, sinh kế và nguồn lực ảnh hưởng thế nào đến khả năng tham gia?'],
-  sol:['Công khai kế hoạch, hoạt động và lịch họp liên quan đến di sản theo cách người dân dễ tiếp cận.','Hỗ trợ tiếp cận vốn, kỹ năng và thời gian cho các hộ làm nghề.']},
+  sol:['Thông báo rõ lịch họp, kế hoạch bảo tồn, chương trình tập huấn và hỗ trợ người dân tiếp cận.','Ưu tiên hỗ trợ về vốn, kỹ năng bán hàng, cách tiếp cận thị trường, thời gian tham gia phù hợp với công việc của các hộ làm nghề.']},
  {k:'P2',n:'Cấp độ tham gia',alt:'Từ thực hành đến chủ động',c:'#8E2234',img:'trung_bay',pos:'center',
   sub:'(Pretty)',desc:'Xem xét hình thức và mức độ chủ động của cộng đồng.',
   li:['Tiếp nhận thông tin & Tham gia thực hiện hoạt động.','Đóng góp ý kiến.','Tham gia xây dựng kế hoạch.','Chủ động đề xuất và khởi xướng sáng kiến.'],
   q:'Người dân chủ yếu thực hiện hoạt động theo kế hoạch có sẵn, hay có thể tham gia xây dựng kế hoạch và đề xuất hướng phát triển?',
-  text:'Sự tham gia có thể thể hiện qua việc trực tiếp sản xuất, gìn giữ kỹ thuật, truyền dạy tri thức, đóng góp ý kiến hoặc cùng xây dựng kế hoạch. Để đánh giá đúng cấp độ tham gia, cần phân biệt việc thực hiện hoạt động theo kế hoạch có sẵn với việc chủ động đề xuất và tham gia quyết định. Điểm số cần được đối chiếu với ghi chép điền dã để xác định hình thức nào được ghi nhận rõ ràng.',
+  analysisTitle:'Cấp độ tham gia (Pretty)',
+  text:['Phần lớn thợ dệt và hộ dân tham gia ở cấp 2–3, chủ yếu thông qua việc được cung cấp thông tin, hỏi ý kiến hoặc tham gia vì lợi ích kinh tế trực tiếp. Một số nghệ nhân nòng cốt và cán bộ liên kết tham gia ở cấp 5–6, có vai trò trong lập kế hoạch và hợp tác quản lý.',
+   'Đóng góp của cộng đồng hiện tập trung vào sức lao động, tri thức và kỹ năng dệt thủ công. Nguồn vốn và các sáng kiến phát triển thị trường, du lịch vẫn phụ thuộc nhiều vào một số nghệ nhân tâm huyết và doanh nghiệp đồng hành như HanhSilk. Vai trò chủ động vì vậy chưa được mở rộng đến nhiều nhóm người dân.'],
   data:[['Tham gia thực hành nghề và hoạt động','3,1/5*'],['Chủ động lập kế hoạch, đề xuất sáng kiến','khoảng 2,5/5*']],
-  crit:'Người dân đang tham gia với tư cách người thực hiện hay đã có cơ hội định hình cách thức phát triển di sản?',
-  more:['Người dân có chủ động đề xuất sáng kiến không?','Ý kiến của nghệ nhân có được xem xét khi xây dựng hoạt động bảo tồn?','Cộng đồng có tham gia từ giai đoạn lập kế hoạch hay chỉ tham gia khi hoạt động đã được quyết định?'],
-  sol:['Mời nghệ nhân và người làm nghề tham gia ngay từ giai đoạn xây dựng kế hoạch.','Tạo kênh để người dân chủ động đề xuất sáng kiến.']},
+  sol:['Tham vấn nghệ nhân, thợ dệt và các hộ sản xuất khi xác định nhu cầu, lựa chọn hoạt động và xây dựng kế hoạch','Tạo điều kiện để người làm nghề đề xuất sáng kiến về sản phẩm, truyền dạy kỹ thuật và tiêu thụ sản phẩm']},
  {k:'P3',n:'Quản trị và quyền lực',alt:'Tiếng nói của cộng đồng',c:'#2F4A3A',img:'vong_co',pos:'center',
   sub:'',desc:'Đánh giá vai trò của cộng đồng trong quản trị di sản.',
   li:['Minh bạch thông tin.','Cơ hội tham gia thảo luận.','Khả năng ảnh hưởng đến quyết định.','Sự phối hợp giữa nghệ nhân, người dân và doanh nghiệp.'],
   q:'Ý kiến và nhu cầu của cộng đồng có được xem xét trong quá trình xây dựng và thực hiện các kế hoạch liên quan đến di sản hay không?',
-  text:'Minh bạch thông tin, khả năng trao đổi và mức độ ảnh hưởng đến quyết định là những yếu tố quan trọng trong quản trị di sản có sự tham gia. Điểm tự đánh giá về ảnh hưởng đến quyết định là 2,4/5. Kết quả này gợi mở câu hỏi về cơ hội để người làm nghề đóng góp ý kiến và tác động đến các kế hoạch liên quan. Tuy nhiên, cần đối chiếu với bằng chứng thực địa trước khi kết luận về thực trạng quản trị tại Nam Cao.',
+  analysisTitle:'Quản trị và quyền lực',
+  text:['Khả năng ảnh hưởng của người dân đến các quyết định quy hoạch đạt 2,4/5. Quyết định cuối cùng về định hướng phát triển vẫn thuộc về chính quyền và Ban quản lý. Tiếng nói của phụ nữ và thợ lớn tuổi trong các cuộc họp cộng đồng chưa tương xứng với vai trò của họ trong hoạt động sản xuất.',
+   'Niềm tin vào Ban quản lý và doanh nghiệp liên kết đạt 3,3/5. Người dân ghi nhận những nỗ lực gìn giữ nghề, đồng thời còn băn khoăn về cách chia sẻ lợi ích lâu dài. Kết quả này cho thấy sự tin tưởng vào các bên đồng hành vẫn tồn tại, trong khi cơ hội tác động đến quyết định của người dân còn hạn chế.'],
   data:[['Phối hợp giữa các bên, niềm tin','3,3/5*'],['Ảnh hưởng đến quyết định','2,4/5']],
-  crit:'Ai đang có tiếng nói trong các quyết định liên quan đến tương lai của di sản?',
-  more:['Cộng đồng có được tham gia thảo luận về kế hoạch phát triển không?','Quy trình tiếp nhận và xử lý ý kiến có minh bạch không?','Vai trò của nghệ nhân, người dân và doanh nghiệp được xác định như thế nào?','Các nhóm khác nhau trong cộng đồng có cơ hội tham gia tương xứng không?'],
-  sol:['Xây dựng quy trình tiếp nhận và phản hồi ý kiến minh bạch.','Xác định rõ vai trò của nghệ nhân, người dân và doanh nghiệp.']},
+  sol:['Thiết lập quy trình tiếp nhận, tổng hợp và phản hồi ý kiến của người dân, tiếp thu, điều chỉnh, thực hiện trong việc làm nghề','Làm rõ vai trò của chính quyền, nghệ nhân, hộ làm nghề và doanh nghiệp trong lập kế hoạch, tổ chức thực hiện và phân chia lợi ích; tạo cơ hội cho phụ nữ và người lao động lớn tuổi.']},
  {k:'P4',n:'Tác động và tính bền vững',alt:'Duy trì nghề cho tương lai',c:'#A0522D',img:'khung_cui_va_hoa_sen',pos:'center',
   sub:'',desc:'Mối liên hệ giữa sự tham gia với sinh kế và khả năng bảo tồn dài hạn.',
   li:['Sinh kế và điều kiện duy trì nghề.','Khả năng tiếp nối kỹ thuật thủ công.','Trao truyền tri thức giữa các thế hệ.','Gắn kết cộng đồng.'],
   q:'Sự tham gia của cộng đồng góp phần duy trì nghề dệt đũi trong dài hạn như thế nào?',
-  text:'Tính bền vững của nghề dệt lụa đũi cần được xem xét thông qua điều kiện duy trì sinh kế, thực hành kỹ thuật và trao truyền tri thức giữa các thế hệ. Việc phát triển sản phẩm hoặc quảng bá di sản có thể mở ra cơ hội, nhưng không tự động chứng minh thu nhập được cải thiện hay nghề được bảo đảm lâu dài. Những tác động này cần được đánh giá bằng thông tin phù hợp về đời sống người làm nghề và hoạt động truyền dạy.',
+  analysisTitle:'Tác động bền vững',
+  text:['Nghề dệt đũi tiếp tục tạo nguồn thu cho người làm nghề thông qua hình thức trả công theo sản phẩm, góp phần trang trải chi tiêu cơ bản của các hộ gia đình. Tuy nhiên, nghiên cứu chưa có số liệu thu nhập định lượng để xác định rõ mức đóng góp này.',
+   'Lực lượng thợ trẻ nối nghiệp còn mỏng, trong khi mức độ hài lòng chung của người dân đạt 3,4/5. Nguồn thu từ nghề góp phần duy trì hoạt động sản xuất hiện tại, nhưng khả năng thu hút và giữ chân lao động trẻ vẫn là vấn đề cần giải quyết. Triển vọng gắn bó với nghề còn phụ thuộc vào thu nhập, cơ hội việc làm và cơ chế chia sẻ lợi ích.'],
   data:[['Sinh kế và điều kiện duy trì nghề','cần đối chiếu thêm'],['Tiếp nối kỹ thuật thủ công','cần đối chiếu thêm'],['Trao truyền tri thức giữa các thế hệ','cần đối chiếu thêm']],
-  crit:'Phát triển sản phẩm và quảng bá di sản đã thực sự giúp người làm nghề duy trì nghề lâu dài chưa?',
-  more:['Thu nhập của người làm nghề có được cải thiện sau khi di sản được quảng bá không?','Thế hệ trẻ có cơ hội và động lực để học và tiếp nối nghề không?','Hoạt động truyền dạy hiện được tổ chức bởi ai và dành cho ai?'],
-  sol:['Theo dõi tác động của sản phẩm và quảng bá đến thu nhập người làm nghề.','Tổ chức hoạt động truyền dạy gắn với thế hệ trẻ.']}
+  sol:['Theo dõi tình hình tiêu thụ sản phẩm, thu nhập từ nghề và lợi ích của các hộ tham gia: thu nhập từ nghề với các nguồn thu khác.','Phát triển hoạt động truyền dạy kỹ thuật dệt với nghệ nhân và người trẻ; khảo sát nhu cầu học nghề, điều kiện làm việc và cơ hội tạo thu nhập để nối nghề']}
 ];
 const BARS=[['Nhận thức về giá trị nghề',4.0,'P1'],['Kỳ vọng về lợi ích',3.7,'P1'],['Phối hợp, niềm tin*',3.3,'P3'],['Tham gia thực hành nghề*',3.1,'P2'],['Minh bạch thông tin',2.8,'P1'],['Cơ hội, vốn và kỹ năng',2.7,'P1'],['Chủ động lập kế hoạch*',2.5,'P2'],['Ảnh hưởng đến quyết định',2.4,'P3']];
-const TABS=[['home','Trang chủ'],['framework','Khung đánh giá'],['results','Kết quả đánh giá'],['analysis','Phân tích & Phản biện'],['solutions','Giải pháp & Kết luận']];
+const TABS=[['home','Trang chủ'],['framework','Khung đánh giá'],['results','Kết quả đánh giá'],['analysis','Phân tích & Diễn giải'],['solutions','Giải pháp & Kết luận']];
 const $=id=>document.getElementById(id), ul=a=>a.map(x=>`<li>${x}</li>`).join('');
 
 function frame(key,cls,style,pos){return `<div class="fr ${cls}" style="${style||''}" data-img="${key}"></div>`}
 /* render */
 $('links').innerHTML=TABS.map(t=>`<button data-tab="${t[0]}" onclick="switchTab('${t[0]}')">${t[1]}</button>`).join('');
 $('pillars').innerHTML=PIL.map(p=>`<div class="card" style="border-left:4px solid ${p.c}"><h3 style="color:${p.c}">${p.k}. ${p.n} ${p.sub}</h3><p style="font-size:14px;font-style:italic">${p.desc}</p><ul>${ul(p.li)}</ul><div class="q">“${p.q}”</div></div>`).join('');
-$('analysis-list').innerHTML=PIL.map((p,i)=>`<div class="row ${i%2?'rev':''}"><div class="side"><h3 style="color:${p.c}">${p.k}. ${p.n}</h3><div class="sub">${p.alt}</div><div class="fr arch" style="aspect-ratio:4/5;border-color:${p.c}" data-img="${p.img}"></div></div>
-<div class="body"><p class="t">“${p.text}”</p><div class="data"><h4 style="color:${p.c}">Dữ liệu liên quan</h4><ul>${p.data.map(d=>`<li><span>${d[0]}:</span><span style="color:${p.c}">${d[1]}</span></li>`).join('')}</ul></div><div class="crit"><h4>Câu hỏi phản biện:</h4><p>${p.crit}</p></div><div class="more"><h4>Cần xem xét thêm:</h4><ul>${ul(p.more)}</ul></div></div></div>`).join('');
-$('sol').innerHTML=PIL.map(p=>`<div class="card" style="border-top:4px solid ${p.c}"><div class="eyebrow" style="text-align:left;color:${p.c}">${p.k} · ${p.n}</div><h3 style="margin-top:6px">${['Mở rộng thông tin và cơ hội','Từ thực hiện đến đề xuất','Tiếng nói trong quyết định','Giữ nghề cho thế hệ sau'][PIL.indexOf(p)]}</h3><ul>${ul(p.sol)}</ul></div>`).join('');
+$('analysis-list').innerHTML=PIL.map((p,i)=>`<div class="row ${i%2?'rev':''}"><div class="side"><h3 style="color:${p.c};margin-bottom:20px">${p.k} – ${p.analysisTitle}</h3><div class="fr arch" style="aspect-ratio:4/5;border-color:${p.c}" data-img="${p.img}"></div></div>
+<div class="body">${p.text.map((text,index)=>`<p class="t">${index===0?'&quot;':''}${text}${index===p.text.length-1?'&quot;':''}</p>`).join('')}<div class="data"><h4 style="color:${p.c}">Dữ liệu liên quan</h4><ul>${p.data.map(d=>`<li><span>${d[0]}:</span><span style="color:${p.c}">${d[1]}</span></li>`).join('')}</ul></div></div></div>`).join('');
+$('sol').innerHTML=PIL.map(p=>`<div class="card" style="border-top:4px solid ${p.c}"><div class="eyebrow" style="text-align:left;color:${p.c}">${p.k} · ${p.n}</div><h3 style="margin-top:6px">${['Đưa thông tin đến với người làm nghề','Từ thực hiện đến đề xuất','Bảo đảm tiếng nói của người trong việc quyết định','Gắn giữ nghề với sinh kế và truyền nghề'][PIL.indexOf(p)]}</h3><ul>${ul(p.sol)}</ul></div>`).join('');
 $('bars').innerHTML=BARS.map(b=>{const c=PIL.find(p=>p.k===b[2]).c;return `<div class="bar"><span>${b[0]}</span><div class="track"><div class="fill" data-w="${b[1]/5*100}" style="background:${c}"></div></div><b>${String(b[1].toFixed(1)).replace('.',',')}</b></div>`}).join('');
 
 /* ảnh: tự thử nhiều tên/đuôi file, báo lỗi rõ nếu vẫn không thấy */
@@ -541,10 +587,43 @@ const fromHash=()=>switchTab(location.hash.slice(1),true);
 addEventListener('popstate',fromHash);addEventListener('hashchange',fromHash);fromHash();
 
 /* nhạc */
-const au=$('bg-music'),btn=$('audio-btn');let on=false;
-function ui(v){on=v;$('i-play').classList.toggle('hidden',v);$('i-pause').classList.toggle('hidden',!v);btn.classList.toggle('on',v);$('audio-text').textContent=v?'Tạm dừng nhạc':'Phát nhạc nền'}
-function toggleAudio(){if(on){au.pause();ui(false);return}au.play().then(()=>ui(true)).catch(()=>{ui(false);alert('Không phát được nhạc. Kiểm tra file nhac-nen.mp3 đã upload cùng thư mục với index.html chưa.')})}
-au.addEventListener('ended',()=>ui(false));
+const au=$('bg-music'),btn=$('audio-btn');let autoStartPending=true;
+function ui(){
+ const playing=!au.paused&&!au.ended;
+ $('i-play').classList.toggle('hidden',playing);
+ $('i-pause').classList.toggle('hidden',!playing);
+ btn.classList.toggle('on',playing);
+ const label=playing?'Tắt nhạc':'Bật nhạc';
+ $('audio-text').textContent=label;
+ btn.setAttribute('aria-label',label);
+ btn.setAttribute('aria-pressed',String(playing));
+}
+async function startAudio(){
+ try{await au.play();autoStartPending=false;btn.removeAttribute('title')}
+ catch(error){
+  if(error.name==='NotAllowedError'){
+   btn.title='Trình duyệt đang chặn tự phát. Bấm để bật nhạc.';
+  }else{
+   autoStartPending=false;
+   btn.title='Không phát được nhạc. Kiểm tra file nhac-nen.mp3.';
+  }
+ }
+ ui();
+}
+function toggleAudio(){
+ autoStartPending=false;
+ if(!au.paused){au.pause();return}
+ void startAudio();
+}
+// Chỉ thử lại khi trình duyệt chặn tự phát; không bật lại sau khi người dùng tắt.
+function resumeAfterGesture(event){
+ if(!autoStartPending||btn.contains(event.target))return;
+ void startAudio();
+}
+document.addEventListener('click',resumeAfterGesture);
+document.addEventListener('keydown',resumeAfterGesture);
+['playing','pause','ended','error'].forEach(event=>au.addEventListener(event,ui));
+ui();void startAudio();
 </script>
 </body>
 </html>
