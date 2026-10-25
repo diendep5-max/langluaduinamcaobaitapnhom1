@@ -232,6 +232,30 @@ img,svg{max-width:100%}
 /* Tai thỏ / viền màn hình */
 @supports(padding:max(0px)){
   .wrap{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+ /* ===== Sửa hàng ảnh trang Giải pháp (không bị cắt ảnh) ===== */
+.gal .fr{aspect-ratio:3/4}
+.gal .fr img{object-position:center}
+
+@media(max-width:860px){
+  .gal{grid-template-columns:repeat(2,1fr);gap:16px}
+  .gal .fr:last-child{
+    grid-column:1/-1;
+    aspect-ratio:3/4;          /* giữ khung dọc, không ép 16/9 nữa */
+    width:min(100%,340px);
+    justify-self:center;
+  }
+}
+
+@media(max-width:600px){
+  .gal{grid-template-columns:1fr;gap:20px}
+  .gal .fr,
+  .gal .fr:last-child{
+    grid-column:auto;
+    aspect-ratio:4/5;
+    width:min(100%,360px);
+    justify-self:center;
+  }
+}
 }
 </style>
 </head>
