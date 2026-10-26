@@ -342,6 +342,50 @@ footer {color: #FFF1C9; text-shadow: 0 1px 2px rgba(0,0,0,.55)}
 #sol ul{margin-top:0;text-align:justify;text-justify:inter-word}
 #sol li+li{margin-top:10px}
 #results .lead,#solutions .lead,.results-cards .card>p:last-child{text-align:justify;text-justify:inter-word}
+/* Kết quả MOA: dữ liệu HTML, điểm từng người và thanh điểm trung bình. */
+.moa-section{margin:44px 0}
+.moa-heading{display:flex;gap:18px;align-items:center;border-block:1px solid var(--gold2);padding:22px 0;margin-bottom:24px}
+.moa-heading .section-number{font:700 48px 'Cormorant Garamond',serif;color:var(--gold);line-height:1}
+.moa-heading h3{font-size:32px;color:var(--red);text-transform:uppercase}
+.moa-scale{display:flex;flex-wrap:wrap;gap:10px 22px;margin-bottom:26px;font-size:13px}
+.moa-scale span{display:inline-flex;gap:8px;align-items:center}
+.score-chip{display:inline-grid;place-items:center;min-width:34px;height:34px;border:1px solid var(--gold2);background:var(--paper);font-weight:500;font-size:14px;border-radius:5px}
+.score-chip[data-score="1"]{background:#fffdf7}
+.score-chip[data-score="2"]{background:#f5edda}
+.score-chip[data-score="3"]{background:#ecdbb3}
+.score-chip[data-score="4"]{background:var(--gold);border-color:var(--gold);color:#302018}
+.score-chip[data-score="5"]{background:var(--red);border-color:var(--red);color:var(--gold2)}
+.moa-panel{margin-bottom:28px;border:1px solid var(--gold2);background:#fffdf7;box-shadow:0 6px 20px #6e14230a}
+.moa-panel-heading{padding:22px 26px;display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--gold2);background:var(--paper)}
+.moa-panel-heading span{font-size:12px;letter-spacing:.12em;color:var(--red);white-space:nowrap}
+.moa-panel-heading h4{font-size:26px;color:var(--red)}
+.moa-table-scroll{overflow-x:auto;padding:0 24px 12px}
+.moa-table{width:100%;border-collapse:collapse;font-size:14px;min-width:880px}
+.moa-table caption{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.moa-table th,.moa-table td{padding:17px 8px;border-bottom:1px solid #e9dfcc;text-align:center;vertical-align:middle}
+.moa-table thead th{font-size:12px;font-weight:500;color:var(--jade);padding-block:18px}
+.moa-table th:first-child{width:35%;text-align:left}
+.moa-table tbody th{font-weight:400;padding-right:20px}
+.moa-table tbody tr:last-child>*{border-bottom:0}
+.moa-table tbody tr:hover{background:#f3ead655}
+.moa-table th:last-child{width:18%}
+.moa-average{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;min-width:140px}
+.moa-average-track{height:8px;background:var(--paper);border-radius:20px;overflow:hidden}
+.moa-average-track span{display:block;height:100%;background:var(--gold);border-radius:inherit}
+.moa-average strong{font:700 28px 'Cormorant Garamond',serif;color:var(--red);min-width:38px}
+.moa-scroll-hint{display:none;font-size:12px;color:var(--jade);padding:10px 24px 0}
+.pretty-intro{max-width:960px;margin:0 0 24px;text-align:justify;text-justify:inter-word;font-size:15px}
+.pretty-table{width:100%;border-collapse:collapse;table-layout:fixed}
+.pretty-table th,.pretty-table td{padding:24px 26px;border-bottom:1px solid var(--gold2);vertical-align:top;text-align:left}
+.pretty-table thead{background:var(--paper);color:var(--red);font-size:14px}
+.pretty-table th:first-child{width:25%}
+.pretty-table tbody th{font:700 23px/1.3 'Cormorant Garamond',serif;color:var(--red)}
+.pretty-table tbody td{font-size:14px;line-height:1.85;text-align:justify;text-justify:inter-word}
+.pretty-table tbody tr:last-child>*{border-bottom:0}
+.pretty-table tbody tr:hover{background:#f3ead655}
+@media(max-width:600px){.pretty-table th,.pretty-table td{padding:16px 12px}.pretty-table th:first-child{width:31%}.pretty-table tbody th{font-size:19px}.pretty-table tbody td{font-size:13px}}
+@media(max-width:960px){.moa-scroll-hint{display:block}.moa-heading h3{font-size:26px}.moa-panel-heading{padding:18px}.moa-table-scroll{padding-inline:14px}}
+@media(max-width:600px){.moa-heading{gap:12px}.moa-heading .section-number{font-size:38px}.moa-heading h3{font-size:23px}.moa-panel-heading{align-items:flex-start;flex-direction:column;gap:4px}.moa-panel-heading h4{font-size:23px}.moa-scale{gap:8px 14px}.moa-scale .score-chip{height:28px;min-width:28px}}
 .conclusion-text{max-width:1080px;margin:14px auto 16px;font-size:15px;line-height:1.8;text-align:justify;text-justify:inter-word;text-wrap:pretty}
 .conclusion-ending{white-space:nowrap}
 @media(max-width:820px){#sol h3{min-height:0}}
@@ -451,17 +495,29 @@ footer {color: #FFF1C9; text-shadow: 0 1px 2px rgba(0,0,0,.55)}
 
 <!-- KẾT QUẢ -->
 <section id="results" class="tab"><div class="wrap sec">
- <div class="eyebrow">Thang điểm 0–5</div>
+ <div class="eyebrow">Các thang đo đánh giá</div>
  <h2 class="title" style="margin-top:6px">KẾT QUẢ TỰ ĐÁNH GIÁ SAU ĐIỀN DÃ</h2><div class="orn">❖</div>
- <p class="lead">“Các điểm số dưới đây phản ánh kết quả tự đánh giá của nhóm nghiên cứu theo thang điểm 5. Dữ liệu được sử dụng để nhận diện những chỉ báo nổi bật và những khía cạnh cần tiếp tục xem xét, không mặc nhiên đại diện cho toàn bộ cộng đồng Nam Cao.”</p>
- <div class="bars" id="bars"></div>
- <div class="grid g3 results-cards" style="margin-bottom:40px">
-  <div class="card"><h3>Nhận thức về giá trị nghề</h3><div class="score">4,0<small>/5</small></div><p style="font-size:14px">Chỉ báo có điểm tự đánh giá cao nhất trong bảng dữ liệu được cung cấp. Đây là khía cạnh đáng chú ý khi xem xét động lực tham gia của cộng đồng.</p></div>
-  <div class="card"><h3>Điều kiện tham gia</h3><p style="font-weight:500;background:var(--paper);padding:6px 10px;margin:8px 0">Minh bạch: 2,8/5 | Cơ hội: 2,7/5</p><p style="font-size:14px">Các chỉ báo này có điểm thấp hơn chỉ báo về nhận thức giá trị nghề. Kết quả gợi mở việc cần xem xét kỹ hơn những điều kiện thực tế để người dân có thể tham gia vào hoạt động bảo tồn.</p></div>
-  <div class="card"><h3 style="color:var(--jade)">Tiếng nói trong quyết định</h3><div class="score" style="color:var(--jade)">2,4<small>/5</small></div><p style="font-size:14px">Đây là cơ sở để đặt câu hỏi về cơ hội tham gia quản trị của cộng đồng, đồng thời cần đối chiếu với bằng chứng điền dã.</p></div>
- </div>
+ <p class="lead">“Các điểm số dưới đây phản ánh kết quả tự đánh giá của nhóm nghiên cứu theo các thang đo khác nhau. Dữ liệu được sử dụng để nhận diện những chỉ báo nổi bật và những khía cạnh cần tiếp tục xem xét, không mặc nhiên đại diện cho toàn bộ cộng đồng Nam Cao.”</p>
+ <section class="moa-section" aria-labelledby="moa-title">
+  <div class="moa-heading"><span class="section-number" aria-hidden="true">01</span><h3 id="moa-title">Phần 1: Điều kiện tham gia MOA</h3></div>
+  <div class="moa-scale" aria-label="Quy ước thang điểm"><span><b class="score-chip" data-score="1">1</b> Rất thấp</span><span><b class="score-chip" data-score="2">2</b> Thấp</span><span><b class="score-chip" data-score="3">3</b> Trung bình</span><span><b class="score-chip" data-score="4">4</b> Cao</span><span><b class="score-chip" data-score="5">5</b> Rất cao</span></div>
+  <div id="moa-results"></div>
+ </section>
+ <section class="moa-section" aria-labelledby="pretty-title">
+  <div class="moa-heading"><span class="section-number" aria-hidden="true">02</span><h3 id="pretty-title">Phần 2: Cấp độ tham gia (Pretty)</h3></div>
+  <p class="pretty-intro">Sự tham gia được xem xét theo từng hoạt động và nhóm người dân, dựa trên thang Pretty gồm bảy cấp độ; không gán một cấp độ chung cho toàn bộ cộng đồng.</p>
+  <div class="moa-panel"><table class="pretty-table">
+   <thead><tr><th scope="col">Khía cạnh đánh giá</th><th scope="col">Kết quả ghi nhận</th></tr></thead>
+   <tbody>
+    <tr><th scope="row">Cấp độ tham gia</th><td>Người dân tham gia qua việc cung cấp thông tin, đóng góp ý kiến, thực hành nghề và các hoạt động có lợi ích kinh tế trực tiếp. Cần phân biệt cung cấp thông tin ở cấp 2, tham vấn ở cấp 3 và tham gia vì khuyến khích vật chất ở cấp 4. Việc bán sản phẩm hoặc nhận thu nhập chưa đủ để xác định cấp độ nếu chưa làm rõ vai trò trong hoạt động được đánh giá. Bằng chứng về cùng lập kế hoạch và quản lý chưa được trình bày thống nhất, nên chưa đủ cơ sở xác nhận cấp 5–6.</td></tr>
+    <tr><th scope="row">Hình thức đóng góp</th><td>Cộng đồng chủ yếu đóng góp sức lao động, tri thức và kỹ năng dệt thủ công. Đóng góp về vốn và sáng kiến phát triển thị trường, du lịch còn hạn chế.</td></tr>
+    <tr><th scope="row">Tham gia họp và tham vấn</th><td>Phần lớn thợ dệt tham gia họp khi được ban thôn mời đích danh hoặc khi có chương trình tập huấn, triển khai nghề cụ thể.</td></tr>
+    <tr><th scope="row">Tham gia tổ, nhóm</th><td>Sự tham gia tập trung trong các tổ, nhóm dệt truyền thống và câu lạc bộ nghệ nhân. Hoạt động chủ yếu gồm truyền nghề, duy trì kỹ thuật dệt và tiêu thụ sản phẩm qua đối tác.</td></tr>
+    <tr><th scope="row">Khả năng tự khởi xướng</th><td>Các sáng kiến lớn về mẫu mã, kết nối thị trường và du lịch trải nghiệm chủ yếu do nghệ nhân tâm huyết cùng HanhSilk khởi xướng. Hộ dệt cá thể ít tự tổ chức hoạt động độc lập.</td></tr>
+   </tbody>
+  </table></div>
+ </section>
  <div class="fr stitch" style="aspect-ratio:16/7;margin-bottom:28px" data-img="toancanh_lua"></div>
- <p class="note"><strong>Lưu ý về dữ liệu:</strong> Các điểm số phản ánh kết quả tự đánh giá theo bộ chỉ báo của nhóm nghiên cứu. Những chỉ báo có dấu sao (*) cần được đối chiếu với bảng chấm điểm gốc. Không sử dụng các điểm số để khẳng định mức độ đại diện cho toàn bộ cộng đồng nếu chưa có thiết kế khảo sát phù hợp.</p>
 </div></section>
 
 <!-- PHÂN TÍCH -->
@@ -539,7 +595,21 @@ const PIL=[
   data:[['Sinh kế và điều kiện duy trì nghề','cần đối chiếu thêm'],['Tiếp nối kỹ thuật thủ công','cần đối chiếu thêm'],['Trao truyền tri thức giữa các thế hệ','cần đối chiếu thêm']],
   sol:['Theo dõi tình hình tiêu thụ sản phẩm, thu nhập từ nghề và lợi ích của các hộ tham gia: thu nhập từ nghề với các nguồn thu khác.','Phát triển hoạt động truyền dạy kỹ thuật dệt với nghệ nhân và người trẻ; khảo sát nhu cầu học nghề, điều kiện làm việc và cơ hội tạo thu nhập để nối nghề']}
 ];
-const BARS=[['Nhận thức về giá trị nghề',4.0,'P1'],['Kỳ vọng về lợi ích',3.7,'P1'],['Phối hợp, niềm tin*',3.3,'P3'],['Tham gia thực hành nghề*',3.1,'P2'],['Minh bạch thông tin',2.8,'P1'],['Cơ hội, vốn và kỹ năng',2.7,'P1'],['Chủ động lập kế hoạch*',2.5,'P2'],['Ảnh hưởng đến quyết định',2.4,'P3']];
+const MOA_RESULTS=[
+ {title:'Điều kiện tham gia',rows:[
+  ['Tự hào về nghề và giá trị di sản',[4,4,5,4,4,3],4.0],
+  ['Kỳ vọng lợi ích kinh tế – xã hội',[4,4,4,3,4,3],3.7],
+  ['Minh bạch thông tin',[3,3,2,3,3,3],2.8],
+  ['Cơ hội tham gia',[3,3,3,3,3,3],3.0],
+  ['Tiếp cận vốn và kỹ năng',[3,3,2,3,2,3],2.7],
+  ['Thời gian và trở ngại*',[3,3,3,2,3,3],2.8]
+ ]},
+ {title:'Kỹ năng và khả năng tiếp cận nguồn lực',rows:[
+  ['Kỹ năng dệt truyền thống',[4,4,4,3,4,3],3.7],
+  ['Tiếp cận vốn',[2,2,3,2,3,2],2.3],
+  ['Kỹ năng du lịch và phát triển thị trường',[2,2,2,3,2,2],2.2]
+ ]}
+];
 const TABS=[['home','Trang chủ'],['framework','Khung đánh giá'],['results','Kết quả đánh giá'],['analysis','Phân tích & Diễn giải'],['solutions','Giải pháp & Kết luận']];
 const $=id=>document.getElementById(id), ul=a=>a.map(x=>`<li>${x}</li>`).join('');
 
@@ -550,7 +620,7 @@ $('pillars').innerHTML=PIL.map(p=>`<div class="card" style="border-left:4px soli
 $('analysis-list').innerHTML=PIL.map((p,i)=>`<div class="row ${i%2?'rev':''}"><div class="side"><h3 style="color:${p.c};margin-bottom:20px">${p.k} – ${p.analysisTitle}</h3><div class="fr arch" style="aspect-ratio:4/5;border-color:${p.c}" data-img="${p.img}"></div></div>
 <div class="body">${p.text.map((text,index)=>`<p class="t">${index===0?'&quot;':''}${text}${index===p.text.length-1?'&quot;':''}</p>`).join('')}<div class="data"><h4 style="color:${p.c}">Dữ liệu liên quan</h4><ul>${p.data.map(d=>`<li><span>${d[0]}:</span><span style="color:${p.c}">${d[1]}</span></li>`).join('')}</ul></div></div></div>`).join('');
 $('sol').innerHTML=PIL.map(p=>`<div class="card" style="border-top:4px solid ${p.c}"><div class="eyebrow" style="text-align:left;color:${p.c}">${p.k} · ${p.n}</div><h3 style="margin-top:6px">${['Đưa thông tin đến với người làm nghề','Từ thực hiện đến đề xuất','Bảo đảm tiếng nói của người trong việc quyết định','Gắn giữ nghề với sinh kế và truyền nghề'][PIL.indexOf(p)]}</h3><ul>${ul(p.sol)}</ul></div>`).join('');
-$('bars').innerHTML=BARS.map(b=>{const c=PIL.find(p=>p.k===b[2]).c;return `<div class="bar"><span>${b[0]}</span><div class="track"><div class="fill" data-w="${b[1]/5*100}" style="background:${c}"></div></div><b>${String(b[1].toFixed(1)).replace('.',',')}</b></div>`}).join('');
+$('moa-results').innerHTML=`<div class="moa-panel"><p class="moa-scroll-hint">Vuốt ngang để xem đủ điểm của 6 người và điểm trung bình.</p><div class="moa-table-scroll" role="region" aria-label="Điều kiện tham gia MOA" tabindex="0"><table class="moa-table"><caption>Điều kiện tham gia MOA — điểm của 6 người và điểm trung bình</caption><thead><tr><th scope="col">Chỉ báo</th>${[1,2,3,4,5,6].map(n=>`<th scope="col">Người ${n}</th>`).join('')}<th scope="col">Trung bình</th></tr></thead><tbody>${MOA_RESULTS.flatMap(group=>group.rows).map(([label,values,average])=>`<tr><th scope="row">${label}</th>${values.map(value=>`<td><span class="score-chip" data-score="${value}">${value}</span></td>`).join('')}<td><div class="moa-average"><div class="moa-average-track" aria-hidden="true"><span style="width:${average/5*100}%"></span></div><strong>${average.toFixed(1).replace('.',',')}</strong></div></td></tr>`).join('')}</tbody></table></div></div>`;
 
 /* ảnh: tự thử nhiều tên/đuôi file, báo lỗi rõ nếu vẫn không thấy */
 function variants(file){
@@ -581,7 +651,6 @@ function switchTab(name,silent){
  const a=document.querySelector('.links button.active');if(a&&a.scrollIntoView)a.scrollIntoView({inline:'center',block:'nearest'});
  if(!silent&&location.hash!=='#'+name)history.pushState(null,'','#'+name);
  window.scrollTo(0,0);
- if(name==='results')requestAnimationFrame(()=>setTimeout(()=>document.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%'),60));
 }
 const fromHash=()=>switchTab(location.hash.slice(1),true);
 addEventListener('popstate',fromHash);addEventListener('hashchange',fromHash);fromHash();
