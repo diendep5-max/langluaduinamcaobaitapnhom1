@@ -436,9 +436,74 @@ footer {color: #FFF1C9; text-shadow: 0 1px 2px rgba(0,0,0,.55)}
  .community-question span+span::before{content:' '}
  #audio-text{display:inline;font-size:12px}
 }
+
+/* Demo màn chào: một lần chạm để vào trang và yêu cầu phát nhạc. */
+.welcome{position:fixed;inset:0;width:100%;max-width:none;height:100%;height:100dvh;max-height:none;border:0;padding:0;color:#fff1d4;background:#290c13;overflow:auto;z-index:100}
+.welcome::backdrop{background:#290c13}
+.welcome-shell{position:relative;min-height:100%;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:6vw;padding:76px max(7vw,24px);isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 75% 40%,#72263666,transparent 60%)}
+.welcome-shell::before{content:'';position:absolute;inset:16px;border:1px solid #d3b27855;z-index:-1;pointer-events:none}
+.welcome-brand{position:absolute;top:34px;left:7vw;font:600 16px 'Cormorant Garamond',serif;letter-spacing:.24em;color:#e6cf93}
+.welcome-visual{position:relative;width:min(100%,420px);margin:22px auto;aspect-ratio:3/4}
+.welcome-visual::before{content:'';position:absolute;inset:-15px 16px 15px -15px;border:1px solid #d3b27866;border-radius:50% 50% 2px 2px}
+.welcome-visual img{width:100%;height:100%;object-fit:cover;border-radius:50% 50% 2px 2px;filter:brightness(.83) saturate(.85)}
+.welcome-visual::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 65%,#290c13b3);border-radius:50% 50% 2px 2px}
+.welcome-stamp{position:absolute;bottom:28px;left:28px;z-index:1;font:italic 20px 'Cormorant Garamond';color:#fff1d4}
+.welcome-kicker{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:#d5b77d;margin-bottom:20px}
+.welcome h2{font-size:clamp(60px,7vw,104px);font-weight:600;line-height:.94;letter-spacing:-.025em;color:#fff0d3}
+.welcome h2 em{display:block;font-weight:400;color:#dfbe7c;font-size:.66em;margin-top:17px}
+.welcome-intro{width:max-content;max-width:100%}
+.welcome-intro h2{width:max-content;max-width:100%;text-align:left}
+.welcome-copy{contain:inline-size;font-size:15px;color:#d9c6be;width:100%;max-width:none;line-height:1.9;margin:28px 0 32px;text-align:justify;text-justify:inter-word;text-wrap:pretty}
+.welcome-enter{display:inline-flex;align-items:center;justify-content:space-between;gap:36px;border:1px solid #dfbe7c;background:#dfbe7c;color:#351019;padding:18px 24px;min-height:56px;font:600 13px 'Be Vietnam Pro',sans-serif;letter-spacing:.08em;cursor:pointer;transition:background .2s,transform .2s}
+.welcome-enter:hover{background:#f1dca8;transform:translateY(-2px)}
+.welcome-enter:focus-visible,.welcome-skip:focus-visible{outline:2px solid #fff;outline-offset:5px}
+.welcome-enter span:last-child{font-size:24px;line-height:1;font-weight:300}
+.welcome-skip{display:block;background:none;border:0;border-bottom:1px solid #d9c6be44;color:#cbb8b0;font:300 12px 'Be Vietnam Pro';padding:0 0 4px;margin-top:20px;cursor:pointer}
+.welcome-sound{font-size:11px;color:#c8aead;margin-top:14px;letter-spacing:.02em}
+.welcome-foot{position:absolute;bottom:30px;right:7vw;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#b99991}
+.welcome.leaving{pointer-events:none;animation:welcome-out .9s cubic-bezier(.7,0,.2,1) forwards}
+.home-arriving .hero-g>div:first-child{animation:arrival 1.1s .12s both}
+.home-arriving .collage{animation:arrival 1.2s .28s both}
+@keyframes welcome-out{0%{opacity:1;clip-path:inset(0)}100%{opacity:.3;clip-path:inset(0 0 100% 0)}}
+@keyframes arrival{from{opacity:0;transform:translateY(35px)}to{opacity:1;transform:none}}
+body.welcome-open{overflow:hidden}
+@media(max-width:760px){
+ .welcome-shell{grid-template-columns:1fr;gap:18px;padding:80px 34px 66px;text-align:center}
+ .welcome-brand{top:30px;left:0;width:100%;font-size:13px}
+ .welcome-visual{width:clamp(130px,38vw,220px);aspect-ratio:4/3;margin:0 auto 8px}
+ .welcome-visual::before{inset:-7px 8px 7px -7px}
+ .welcome-stamp{display:none}
+ .welcome-kicker{font-size:9px;letter-spacing:.16em;margin-bottom:13px}
+ .welcome h2{font-size:clamp(48px,13vw,70px)}
+ .welcome h2 em{margin-top:10px}
+ .welcome-intro{margin-inline:auto}
+ .welcome-copy{font-size:13px;line-height:1.75;margin:19px 0 22px;max-width:none}
+ .welcome-enter{padding:15px 20px;font-size:11px;gap:24px}
+ .welcome-skip{margin:15px auto 0}
+ .welcome-foot{right:0;bottom:24px;width:100%;font-size:9px;letter-spacing:.1em}
+}
+@media(prefers-reduced-motion:reduce){.welcome.leaving{animation:none;opacity:0}.home-arriving .hero-g>div:first-child,.home-arriving .collage{animation:none}}
 </style>
 </head>
 <body>
+<dialog id="welcome" class="welcome" aria-labelledby="welcome-title" aria-describedby="welcome-description">
+ <div class="welcome-shell">
+  <div class="welcome-brand">NAM CAO HERITAGE</div>
+  <div class="welcome-visual"><img src="./hoa_sen.jpeg" alt="Hoa sen trên nền lụa đũi Nam Cao" loading="eager"><span class="welcome-stamp">Một miền di sản sống.</span></div>
+  <div class="welcome-content">
+   <p class="welcome-kicker">Làng lụa đũi · Tri thức nghề · Cộng đồng</p>
+   <div class="welcome-intro">
+   <h2 id="welcome-title">Nam Cao<em>Qua từng sợi đũi</em></h2>
+   <p id="welcome-description" class="welcome-copy">Gặp những con người giữ nghề. Lắng nghe câu chuyện về sinh kế, sự tiếp nối và tiếng nói của cộng đồng trong tương lai làng nghề.</p>
+   </div>
+   <button type="button" class="welcome-enter" onclick="enterHeritage(true)"><span>KHÁM PHÁ NAM CAO</span><span aria-hidden="true">→</span></button>
+   <p class="welcome-sound">Chạm để vào website và bật nhạc nền.</p>
+   <button type="button" class="welcome-skip" onclick="enterHeritage(false)">Vào xem không bật nhạc</button>
+  </div>
+  <p class="welcome-foot">Hiện diện &nbsp; / &nbsp; Đóng góp &nbsp; / &nbsp; Ảnh hưởng</p>
+ </div>
+</dialog>
+
 <audio id="bg-music" loop preload="auto" src="./nhac-nen.mp3?v=2d1a00ee2f79"></audio>
 
 <button id="audio-btn" onclick="toggleAudio()" aria-label="Phát nhạc nền">
@@ -750,13 +815,36 @@ function toggleAudio(){
 }
 // Chỉ thử lại khi trình duyệt chặn tự phát; không bật lại sau khi người dùng tắt.
 function resumeAfterGesture(event){
+ if($('welcome').open)return;
  if(!autoStartPending||btn.contains(event.target))return;
  void startAudio();
 }
 document.addEventListener('click',resumeAfterGesture);
 document.addEventListener('keydown',resumeAfterGesture);
 ['playing','pause','ended','error'].forEach(event=>au.addEventListener(event,ui));
-ui();void startAudio();
+ui();
+const welcome=$('welcome');
+let enteringHeritage=false;
+function enterHeritage(withMusic){
+ if(enteringHeritage)return;
+ enteringHeritage=true;
+ // play() được gọi trực tiếp trong sự kiện chạm, trước mọi hiệu ứng chờ.
+ if(withMusic){autoStartPending=true;void startAudio()}
+ else{autoStartPending=false;au.pause()}
+ switchTab('home');
+ welcome.classList.add('leaving');
+ const finish=()=>{
+  welcome.close();document.body.classList.remove('welcome-open');
+  $('home').classList.add('home-arriving');
+  const heading=document.querySelector('#home h1');heading.setAttribute('tabindex','-1');heading.focus({preventScroll:true});
+ };
+ setTimeout(finish,matchMedia('(prefers-reduced-motion: reduce)').matches?0:900);
+}
+// Giữ nguyên đường dẫn trực tiếp tới từng mục; màn chào dành cho lối vào trang chủ.
+if(!location.hash||location.hash==='#home'){
+ welcome.showModal();document.body.classList.add('welcome-open');
+}else{void startAudio()}
+welcome.addEventListener('cancel',event=>{event.preventDefault();enterHeritage(false)});
 </script>
 </body>
 </html>
