@@ -374,7 +374,7 @@ footer {color: #FFF1C9; text-shadow: 0 1px 2px rgba(0,0,0,.55)}
 .moa-average-track span{display:block;height:100%;background:var(--gold);border-radius:inherit}
 .moa-average strong{font:700 28px 'Cormorant Garamond',serif;color:var(--red);min-width:38px}
 .moa-scroll-hint{display:none;font-size:12px;color:var(--jade);padding:10px 24px 0}
-.pretty-intro{max-width:960px;margin:0 0 24px;text-align:justify;text-justify:inter-word;font-size:15px}
+.pretty-intro{width:100%;max-width:none;margin:0 0 24px;text-align:justify;text-justify:inter-word;font-size:15px}
 .pretty-table{width:100%;border-collapse:collapse;table-layout:fixed}
 .pretty-table th,.pretty-table td{padding:24px 26px;border-bottom:1px solid var(--gold2);vertical-align:top;text-align:left}
 .pretty-table thead{background:var(--paper);color:var(--red);font-size:14px}
@@ -383,7 +383,25 @@ footer {color: #FFF1C9; text-shadow: 0 1px 2px rgba(0,0,0,.55)}
 .pretty-table tbody td{font-size:14px;line-height:1.85;text-align:justify;text-justify:inter-word}
 .pretty-table tbody tr:last-child>*{border-bottom:0}
 .pretty-table tbody tr:hover{background:#f3ead655}
-@media(max-width:600px){.pretty-table th,.pretty-table td{padding:16px 12px}.pretty-table th:first-child{width:31%}.pretty-table tbody th{font-size:19px}.pretty-table tbody td{font-size:13px}}
+.result-metric{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.result-metric strong{font:700 32px/1.2 'Cormorant Garamond',serif;color:var(--red)}
+.result-metric .moa-average-track{width:220px;max-width:100%;height:9px}
+.result-source{display:block;font-size:13px;color:var(--jade);margin-top:8px;line-height:1.7}
+.result-calculation{margin-top:14px;padding-top:12px;border-top:1px dotted var(--gold);font-size:14px;line-height:1.8}
+.result-calculation p+p{margin-top:6px}
+.result-calculation .formula{font-weight:500;color:var(--red);overflow-wrap:anywhere}
+.data li span:last-child{max-width:62%;text-align:right;overflow-wrap:anywhere}
+.results-method{max-width:100%;margin-bottom:26px;line-height:1.8}
+.scored-table .qualitative-result{text-align:justify;text-justify:inter-word}
+.scored-table .result-source{margin-top:6px}
+.result-status{font-weight:500;color:var(--red)}
+.result-detail{border:1px solid var(--gold2);background:#fffdf7;margin:20px 0}
+.result-detail summary{cursor:pointer;padding:16px 24px;font-weight:500;color:var(--red);background:var(--paper)}
+.result-detail[open] summary{border-bottom:1px solid var(--gold2)}
+.result-scale-note{font-size:13px;margin:14px 0;text-align:justify}
+.results-next{text-align:center;margin:38px 0}
+@media(max-width:860px){.pretty-table th,.pretty-table td{padding:18px 16px}.pretty-table th:first-child{width:36%}.pretty-table tbody th{font-size:21px}}
+@media(max-width:600px){.pretty-table th,.pretty-table td{padding:16px 12px}.pretty-table tbody th{font-size:19px}.pretty-table tbody td{font-size:13px}}
 @media(max-width:960px){.moa-scroll-hint{display:block}.moa-heading h3{font-size:26px}.moa-panel-heading{padding:18px}.moa-table-scroll{padding-inline:14px}}
 @media(max-width:600px){.moa-heading{gap:12px}.moa-heading .section-number{font-size:38px}.moa-heading h3{font-size:23px}.moa-panel-heading{align-items:flex-start;flex-direction:column;gap:4px}.moa-panel-heading h4{font-size:23px}.moa-scale{gap:8px 14px}.moa-scale .score-chip{height:28px;min-width:28px}}
 .conclusion-text{max-width:1080px;margin:14px auto 16px;font-size:15px;line-height:1.8;text-align:justify;text-justify:inter-word;text-wrap:pretty}
@@ -395,6 +413,13 @@ footer {color: #FFF1C9; text-shadow: 0 1px 2px rgba(0,0,0,.55)}
 .model-column h4{background:var(--red);color:var(--gold2);font-size:24px;letter-spacing:.06em;padding:12px 16px}
 .model-definition{flex:1;border:1px solid var(--gold2);background:var(--paper);padding:18px;font-size:14px;text-align:justify;text-justify:inter-word}
 .model-quote{font-style:italic;color:var(--red2);margin-top:16px;font-size:clamp(10px,1.05vw,14px)}
+.reading-guide{margin:0 0 48px;padding:26px 0;border-top:1px solid var(--gold2);border-bottom:1px solid var(--gold2)}
+.reading-guide h3{font-size:28px;color:var(--red);margin-bottom:20px}
+.reading-guide dl{display:grid;gap:18px}
+.reading-guide dl>div{display:grid;grid-template-columns:190px minmax(0,1fr);gap:24px}
+.reading-guide dt{font-weight:500;color:var(--red);font-size:15px}
+.reading-guide dd{font-size:14px;line-height:1.85;text-align:justify;text-justify:inter-word}
+@media(max-width:600px){.reading-guide dl>div{grid-template-columns:1fr;gap:5px}.reading-guide h3{font-size:25px}}
 .methodology p{text-align:justify;text-justify:inter-word}
 @media(max-width:700px){.model-columns{grid-template-columns:1fr}.model-quote{font-size:14px}}
 #audio-text{max-width:180px;padding-right:6px}
@@ -486,9 +511,17 @@ footer {color: #FFF1C9; text-shadow: 0 1px 2px rgba(0,0,0,.55)}
   </div>
   <p class="lora model-quote">“Có mặt trong hoạt động không đồng nghĩa với việc có tiếng nói; đóng góp công sức hoặc tri thức cũng không tự động đồng nghĩa với quyền tham gia quyết định.”</p>
  </div>
+ <section class="reading-guide" aria-labelledby="reading-guide-title">
+  <h3 id="reading-guide-title">CÁCH ĐỌC KẾT QUẢ</h3>
+  <dl>
+   <div><dt>Điểm 1–5</dt><dd>1 = rất thấp, 2 = thấp, 3 = trung bình, 4 = cao, 5 = rất cao. Với chỉ báo về trở ngại, điểm cao thể hiện điều kiện thuận lợi hơn, tức ít trở ngại hơn. Điểm trung bình phản ánh các giá trị trong từng bảng, không mặc nhiên đại diện cho toàn bộ cộng đồng.</dd></div>
+   <div><dt>Các hình thức Pretty</dt><dd>Phân biệt bảy hình thức tham gia theo vai trò và mức độ chủ động của người dân. Các cấp độ được xem xét theo từng hoạt động và nhóm người; không phải điểm đánh giá trên thang 5 và không dùng để tính điểm trung bình.</dd></div>
+   <div><dt>Nhận định định tính</dt><dd>Mô tả kết quả từ phỏng vấn, thảo luận nhóm và tài liệu liên quan, chẳng hạn tiếng nói còn hạn chế hoặc lực lượng trẻ còn ít. Các nhận định này không quy đổi thành điểm; nội dung chưa có số liệu cụ thể được ghi rõ.</dd></div>
+  </dl>
+ </section>
  <div class="grid g2 methodology" style="align-items:center;gap:40px;grid-template-columns:1.4fr .6fr">
   <div><h3 style="font-size:26px;color:var(--red);margin-bottom:10px">Phương pháp nghiên cứu và giới hạn dữ liệu</h3>
-  <p style="font-size:14px">Nghiên cứu sử dụng phương pháp hỗn hợp, kết hợp phỏng vấn nghệ nhân, trao đổi với người làm nghề, thảo luận nhóm và phân tích tài liệu địa phương để đánh giá sự tham gia của cộng đồng trong bảo tồn nghề dệt đũi và phát triển du lịch di sản tại Nam Cao. Việc đánh giá tập trung vào bốn khía cạnh: điều kiện tham gia, cấp độ tham gia, vai trò trong quản trị di sản và tác động đối với tính bền vững. Kết quả được phân tích dựa trên bộ chỉ báo tương ứng. Những điểm số chưa được xác minh cần được đối chiếu lại với dữ liệu gốc trước khi công bố. Các kết quả này không mặc nhiên đại diện cho toàn bộ cộng đồng.</p></div>
+  <p style="font-size:14px">Nghiên cứu sử dụng phương pháp hỗn hợp, kết hợp phỏng vấn nghệ nhân, trao đổi với người làm nghề, thảo luận nhóm và phân tích tài liệu địa phương để đánh giá sự tham gia của cộng đồng trong bảo tồn nghề dệt đũi và phát triển du lịch di sản tại Nam Cao. Việc đánh giá tập trung vào bốn khía cạnh: điều kiện tham gia, cấp độ tham gia, vai trò trong quản trị di sản và tác động đối với tính bền vững. Kết quả được phân tích dựa trên bộ chỉ báo tương ứng. Các bộ điểm được đọc cùng thông tin phỏng vấn và tài liệu liên quan. Phạm vi dữ liệu còn hạn chế; kết quả không mặc nhiên đại diện cho toàn bộ cộng đồng và chưa đủ để kết luận về mức tăng thu nhập hay nguyên nhân người trẻ ít gắn bó với nghề.</p></div>
   <div class="fr stitch" style="aspect-ratio:3/2" data-img="tamnhu_va_ba"></div>
  </div>
 </div></section>
@@ -496,20 +529,22 @@ footer {color: #FFF1C9; text-shadow: 0 1px 2px rgba(0,0,0,.55)}
 <!-- KẾT QUẢ -->
 <section id="results" class="tab"><div class="wrap sec">
  <div class="eyebrow">Các thang đo đánh giá</div>
- <h2 class="title" style="margin-top:6px">KẾT QUẢ TỰ ĐÁNH GIÁ SAU ĐIỀN DÃ</h2><div class="orn">❖</div>
- <p class="lead">“Các điểm số dưới đây phản ánh kết quả tự đánh giá của nhóm nghiên cứu theo các thang đo khác nhau. Dữ liệu được sử dụng để nhận diện những chỉ báo nổi bật và những khía cạnh cần tiếp tục xem xét, không mặc nhiên đại diện cho toàn bộ cộng đồng Nam Cao.”</p>
+ <h2 class="title" style="margin-top:6px">KẾT QUẢ ĐÁNH GIÁ SAU ĐIỀN DÃ</h2><div class="orn">❖</div>
+ <p class="lead">“Các kết quả dưới đây được tổng hợp từ bộ điểm và thông tin định tính của nhóm nghiên cứu theo các thang đo khác nhau. Dữ liệu được sử dụng để nhận diện những chỉ báo nổi bật và những khía cạnh cần tiếp tục xem xét, không mặc nhiên đại diện cho toàn bộ cộng đồng Nam Cao.”</p>
+ <p class="result-scale-note results-method">Cách đọc dữ liệu: Bảng P1 trình bày điểm của 6 người; các chỉ báo có điểm ở P3 và P4 trình bày điểm của 5 người. Điểm trung bình được tính từ các giá trị trong từng hàng và làm tròn đến một chữ số thập phân. Các nhận định định tính được trình bày riêng, không quy đổi thành điểm số.</p>
  <section class="moa-section" aria-labelledby="moa-title">
   <div class="moa-heading"><span class="section-number" aria-hidden="true">01</span><h3 id="moa-title">Phần 1: Điều kiện tham gia MOA</h3></div>
   <div class="moa-scale" aria-label="Quy ước thang điểm"><span><b class="score-chip" data-score="1">1</b> Rất thấp</span><span><b class="score-chip" data-score="2">2</b> Thấp</span><span><b class="score-chip" data-score="3">3</b> Trung bình</span><span><b class="score-chip" data-score="4">4</b> Cao</span><span><b class="score-chip" data-score="5">5</b> Rất cao</span></div>
   <div id="moa-results"></div>
+  <p class="result-scale-note">Với chỉ báo về trở ngại và khả năng tiếp cận, điểm cao thể hiện điều kiện thuận lợi hơn, theo quy ước trong tài liệu.</p>
  </section>
  <section class="moa-section" aria-labelledby="pretty-title">
   <div class="moa-heading"><span class="section-number" aria-hidden="true">02</span><h3 id="pretty-title">Phần 2: Cấp độ tham gia (Pretty)</h3></div>
-  <p class="pretty-intro">Sự tham gia được xem xét theo từng hoạt động và nhóm người dân, dựa trên thang Pretty gồm bảy cấp độ; không gán một cấp độ chung cho toàn bộ cộng đồng.</p>
+  <p class="pretty-intro">Sự tham gia được xem xét theo từng hoạt động và nhóm người dân, dựa trên cách phân loại Pretty gồm bảy hình thức; không gán một cấp độ chung cho toàn bộ cộng đồng. Cấp 2 là người dân cung cấp thông tin cho bên khảo sát, khác với việc chỉ được thông báo về một hoạt động.</p>
   <div class="moa-panel"><table class="pretty-table">
-   <thead><tr><th scope="col">Khía cạnh đánh giá</th><th scope="col">Kết quả ghi nhận</th></tr></thead>
+   <thead><tr><th scope="col">Chỉ báo / Khía cạnh</th><th scope="col">Kết quả ghi nhận</th></tr></thead>
    <tbody>
-    <tr><th scope="row">Cấp độ tham gia</th><td>Người dân tham gia qua việc cung cấp thông tin, đóng góp ý kiến, thực hành nghề và các hoạt động có lợi ích kinh tế trực tiếp. Cần phân biệt cung cấp thông tin ở cấp 2, tham vấn ở cấp 3 và tham gia vì khuyến khích vật chất ở cấp 4. Việc bán sản phẩm hoặc nhận thu nhập chưa đủ để xác định cấp độ nếu chưa làm rõ vai trò trong hoạt động được đánh giá. Bằng chứng về cùng lập kế hoạch và quản lý chưa được trình bày thống nhất, nên chưa đủ cơ sở xác nhận cấp 5–6.</td></tr>
+    <tr><th scope="row">Cấp độ tham gia</th><td>Người dân tham gia qua việc cung cấp thông tin, đóng góp ý kiến, thực hành nghề và các hoạt động có lợi ích kinh tế trực tiếp. Theo cách phân loại được sử dụng, cấp 2 là cung cấp thông tin, cấp 3 là tham vấn và cấp 4 là tham gia vì khuyến khích vật chất. Việc bán sản phẩm hoặc nhận thu nhập chưa đủ để xác định cấp độ nếu chưa làm rõ vai trò trong hoạt động được đánh giá. Bằng chứng về cùng lập kế hoạch và quản lý chưa được trình bày thống nhất, nên chưa đủ cơ sở xác nhận cấp 5–6.</td></tr>
     <tr><th scope="row">Hình thức đóng góp</th><td>Cộng đồng chủ yếu đóng góp sức lao động, tri thức và kỹ năng dệt thủ công. Đóng góp về vốn và sáng kiến phát triển thị trường, du lịch còn hạn chế.</td></tr>
     <tr><th scope="row">Tham gia họp và tham vấn</th><td>Phần lớn thợ dệt tham gia họp khi được ban thôn mời đích danh hoặc khi có chương trình tập huấn, triển khai nghề cụ thể.</td></tr>
     <tr><th scope="row">Tham gia tổ, nhóm</th><td>Sự tham gia tập trung trong các tổ, nhóm dệt truyền thống và câu lạc bộ nghệ nhân. Hoạt động chủ yếu gồm truyền nghề, duy trì kỹ thuật dệt và tiêu thụ sản phẩm qua đối tác.</td></tr>
@@ -517,6 +552,16 @@ footer {color: #FFF1C9; text-shadow: 0 1px 2px rgba(0,0,0,.55)}
    </tbody>
   </table></div>
  </section>
+ <section class="moa-section" aria-labelledby="governance-title">
+  <div class="moa-heading"><span class="section-number" aria-hidden="true">03</span><h3 id="governance-title">Phần 3: Quản trị và quyền lực</h3></div>
+  <div id="governance-results"></div>
+ </section>
+ <section class="moa-section" aria-labelledby="sustainability-title">
+  <div class="moa-heading"><span class="section-number" aria-hidden="true">04</span><h3 id="sustainability-title">Phần 4: Tác động bền vững</h3></div>
+  <div id="sustainability-results"></div>
+ </section>
+ <p class="result-scale-note">Nguồn: bộ điểm và tài liệu điền dã do nhóm nghiên cứu cung cấp. Cách phân loại Pretty tham khảo <a href="https://www.fao.org/4/w7541e/w7541e08.htm" target="_blank" rel="noopener noreferrer">FAO, Hộp 10 — các hình thức tham gia</a>; các cấp độ không phải điểm trung bình trên thang 5.</p>
+ <div class="results-next"><button class="btn" onclick="switchTab('analysis')">Xem phân tích &amp; diễn giải →</button></div>
  <div class="fr stitch" style="aspect-ratio:16/7;margin-bottom:28px" data-img="toancanh_lua"></div>
 </div></section>
 
@@ -563,28 +608,28 @@ const PIL=[
   li:['<b>Động lực:</b> Nhận thức giá trị nghề, kỳ vọng lợi ích.','<b>Cơ hội:</b> Khả năng tiếp cận thông tin, hoạt động, cuộc họp.','<b>Năng lực:</b> Khả năng tiếp cận vốn, kỹ năng, thời gian.'],
   q:'Người dân có đủ động lực, cơ hội và năng lực để tham gia thực chất vào quá trình bảo tồn và phát triển di sản hay không?',
   analysisTitle:'Điều kiện tham gia (MOA)',
-  text:['Cộng đồng có động lực gìn giữ nghề, thể hiện qua điểm nhận thức về giá trị di sản đạt 4,0/5 và kỳ vọng lợi ích đạt 3,7/5. Tuy nhiên, những điều kiện hỗ trợ người dân tham gia còn hạn chế: công khai thông tin đạt 2,8/5; cơ hội tham gia đạt 3,0/5; khả năng tiếp cận vốn và kỹ năng du lịch, thị trường đạt 2,7/5. Chỉ báo về rào cản thời gian và tâm lý đạt 2,9/5.',
+  text:['Cộng đồng có động lực gìn giữ nghề, thể hiện qua điểm nhận thức về giá trị di sản đạt 4,0/5 và kỳ vọng lợi ích đạt 3,7/5. Tuy nhiên, những điều kiện hỗ trợ người dân tham gia còn hạn chế: công khai thông tin đạt 2,8/5; cơ hội tham gia đạt 3,0/5; chỉ báo tiếp cận vốn và kỹ năng đạt 2,7/5; thời gian và trở ngại đạt 2,8/5. Trong các chỉ báo chi tiết, kỹ năng dệt truyền thống đạt 3,7/5, tiếp cận vốn đạt 2,3/5 và kỹ năng du lịch, phát triển thị trường đạt 2,2/5.',
    'Các kết quả này cho thấy mong muốn giữ nghề chưa đi cùng với điều kiện tham gia tương ứng. Người dân có động lực, nhưng việc tiếp cận thông tin, nguồn lực và sắp xếp thời gian vẫn ảnh hưởng đến khả năng tham gia vào các hoạt động bảo tồn và phát triển di sản.'],
-  data:[['Nhận thức về giá trị nghề','4,0/5'],['Kỳ vọng về lợi ích','3,7/5'],['Minh bạch thông tin','2,8/5'],['Cơ hội tham gia, vốn và kỹ năng','2,7/5']],
+  data:[['Nhận thức về giá trị nghề','4,0/5'],['Kỳ vọng về lợi ích','3,7/5'],['Minh bạch thông tin','2,8/5'],['Cơ hội tham gia','3,0/5'],['Tiếp cận vốn và kỹ năng','2,7/5'],['Thời gian và trở ngại','2,8/5']],
   sol:['Thông báo rõ lịch họp, kế hoạch bảo tồn, chương trình tập huấn và hỗ trợ người dân tiếp cận.','Ưu tiên hỗ trợ về vốn, kỹ năng bán hàng, cách tiếp cận thị trường, thời gian tham gia phù hợp với công việc của các hộ làm nghề.']},
  {k:'P2',n:'Cấp độ tham gia',alt:'Từ thực hành đến chủ động',c:'#8E2234',img:'trung_bay',pos:'center',
   sub:'(Pretty)',desc:'Xem xét hình thức và mức độ chủ động của cộng đồng.',
   li:['Tiếp nhận thông tin & Tham gia thực hiện hoạt động.','Đóng góp ý kiến.','Tham gia xây dựng kế hoạch.','Chủ động đề xuất và khởi xướng sáng kiến.'],
   q:'Người dân chủ yếu thực hiện hoạt động theo kế hoạch có sẵn, hay có thể tham gia xây dựng kế hoạch và đề xuất hướng phát triển?',
   analysisTitle:'Cấp độ tham gia (Pretty)',
-  text:['Phần lớn thợ dệt và hộ dân tham gia ở cấp 2–3, chủ yếu thông qua việc được cung cấp thông tin, hỏi ý kiến hoặc tham gia vì lợi ích kinh tế trực tiếp. Một số nghệ nhân nòng cốt và cán bộ liên kết tham gia ở cấp 5–6, có vai trò trong lập kế hoạch và hợp tác quản lý.',
+  text:['Sự tham gia của người dân thể hiện rõ ở việc cung cấp thông tin, thực hành nghề, đóng góp lao động và hỗ trợ các hoạt động trải nghiệm. Tuy nhiên, những hình thức này chưa đủ để khẳng định người dân có vai trò cùng lập kế hoạch hoặc quản lý. Cần đánh giá theo từng hoạt động và nhóm người tham gia, thay vì gán một cấp độ chung cho toàn bộ cộng đồng.',
    'Đóng góp của cộng đồng hiện tập trung vào sức lao động, tri thức và kỹ năng dệt thủ công. Nguồn vốn và các sáng kiến phát triển thị trường, du lịch vẫn phụ thuộc nhiều vào một số nghệ nhân tâm huyết và doanh nghiệp đồng hành như HanhSilk. Vai trò chủ động vì vậy chưa được mở rộng đến nhiều nhóm người dân.'],
-  data:[['Tham gia thực hành nghề và hoạt động','3,1/5*'],['Chủ động lập kế hoạch, đề xuất sáng kiến','khoảng 2,5/5*']],
+  data:[['Đóng góp chủ yếu','Lao động, tri thức và kỹ năng dệt'],['Lập kế hoạch và quản lý','Chưa đủ cơ sở xác nhận cấp 5–6'],['Tự khởi xướng ở hộ dệt cá thể','Còn hạn chế']],
   sol:['Tham vấn nghệ nhân, thợ dệt và các hộ sản xuất khi xác định nhu cầu, lựa chọn hoạt động và xây dựng kế hoạch','Tạo điều kiện để người làm nghề đề xuất sáng kiến về sản phẩm, truyền dạy kỹ thuật và tiêu thụ sản phẩm']},
  {k:'P3',n:'Quản trị và quyền lực',alt:'Tiếng nói của cộng đồng',c:'#2F4A3A',img:'vong_co',pos:'center',
   sub:'',desc:'Đánh giá vai trò của cộng đồng trong quản trị di sản.',
   li:['Minh bạch thông tin.','Cơ hội tham gia thảo luận.','Khả năng ảnh hưởng đến quyết định.','Sự phối hợp giữa nghệ nhân, người dân và doanh nghiệp.'],
   q:'Ý kiến và nhu cầu của cộng đồng có được xem xét trong quá trình xây dựng và thực hiện các kế hoạch liên quan đến di sản hay không?',
   analysisTitle:'Quản trị và quyền lực',
-  text:['Khả năng ảnh hưởng của người dân đến các quyết định quy hoạch đạt 2,4/5. Quyết định cuối cùng về định hướng phát triển vẫn thuộc về chính quyền và Ban quản lý. Tiếng nói của phụ nữ và thợ lớn tuổi trong các cuộc họp cộng đồng chưa tương xứng với vai trò của họ trong hoạt động sản xuất.',
+  text:['Khả năng ảnh hưởng của người dân đến các quyết định quy hoạch đạt 2,4/5. Theo nhận định của đa số nghệ nhân được phỏng vấn, quyết định định hướng cuối cùng thuộc về chính quyền và Ban quản lý. Tiếng nói của phụ nữ và thợ lớn tuổi trong các cuộc họp cộng đồng chưa tương xứng với vai trò của họ trong hoạt động sản xuất.',
    'Niềm tin vào Ban quản lý và doanh nghiệp liên kết đạt 3,3/5. Người dân ghi nhận những nỗ lực gìn giữ nghề, đồng thời còn băn khoăn về cách chia sẻ lợi ích lâu dài. Kết quả này cho thấy sự tin tưởng vào các bên đồng hành vẫn tồn tại, trong khi cơ hội tác động đến quyết định của người dân còn hạn chế.'],
-  data:[['Phối hợp giữa các bên, niềm tin','3,3/5*'],['Ảnh hưởng đến quyết định','2,4/5']],
-  sol:['Thiết lập quy trình tiếp nhận, tổng hợp và phản hồi ý kiến của người dân, tiếp thu, điều chỉnh, thực hiện trong việc làm nghề','Làm rõ vai trò của chính quyền, nghệ nhân, hộ làm nghề và doanh nghiệp trong lập kế hoạch, tổ chức thực hiện và phân chia lợi ích; tạo cơ hội cho phụ nữ và người lao động lớn tuổi.']},
+  data:[['Niềm tin vào Ban quản lý và đối tác liên kết','3,3/5'],['Ảnh hưởng đến quyết định','2,4/5']],
+  sol:['Thiết lập quy trình tiếp nhận, tổng hợp và phản hồi ý kiến của người dân; thông báo rõ ý kiến nào được tiếp thu và cách triển khai.','Làm rõ vai trò của chính quyền, nghệ nhân, hộ làm nghề và doanh nghiệp trong lập kế hoạch, tổ chức thực hiện và phân chia lợi ích; tạo cơ hội cho phụ nữ và người lao động lớn tuổi.']},
  {k:'P4',n:'Tác động và tính bền vững',alt:'Duy trì nghề cho tương lai',c:'#A0522D',img:'khung_cui_va_hoa_sen',pos:'center',
   sub:'',desc:'Mối liên hệ giữa sự tham gia với sinh kế và khả năng bảo tồn dài hạn.',
   li:['Sinh kế và điều kiện duy trì nghề.','Khả năng tiếp nối kỹ thuật thủ công.','Trao truyền tri thức giữa các thế hệ.','Gắn kết cộng đồng.'],
@@ -592,8 +637,8 @@ const PIL=[
   analysisTitle:'Tác động bền vững',
   text:['Nghề dệt đũi tiếp tục tạo nguồn thu cho người làm nghề thông qua hình thức trả công theo sản phẩm, góp phần trang trải chi tiêu cơ bản của các hộ gia đình. Tuy nhiên, nghiên cứu chưa có số liệu thu nhập định lượng để xác định rõ mức đóng góp này.',
    'Lực lượng thợ trẻ nối nghiệp còn mỏng, trong khi mức độ hài lòng chung của người dân đạt 3,4/5. Nguồn thu từ nghề góp phần duy trì hoạt động sản xuất hiện tại, nhưng khả năng thu hút và giữ chân lao động trẻ vẫn là vấn đề cần giải quyết. Triển vọng gắn bó với nghề còn phụ thuộc vào thu nhập, cơ hội việc làm và cơ chế chia sẻ lợi ích.'],
-  data:[['Sinh kế và điều kiện duy trì nghề','cần đối chiếu thêm'],['Tiếp nối kỹ thuật thủ công','cần đối chiếu thêm'],['Trao truyền tri thức giữa các thế hệ','cần đối chiếu thêm']],
-  sol:['Theo dõi tình hình tiêu thụ sản phẩm, thu nhập từ nghề và lợi ích của các hộ tham gia: thu nhập từ nghề với các nguồn thu khác.','Phát triển hoạt động truyền dạy kỹ thuật dệt với nghệ nhân và người trẻ; khảo sát nhu cầu học nghề, điều kiện làm việc và cơ hội tạo thu nhập để nối nghề']}
+  data:[['Hài lòng chung của cư dân','3,4/5'],['Thu nhập từ nghề','Chưa có số liệu định lượng'],['Thợ trẻ học và giữ nghề','Còn rất ít — ghi nhận định tính']],
+  sol:['Theo dõi tình hình tiêu thụ sản phẩm, thu nhập từ nghề và lợi ích của các hộ tham gia; phân biệt thu nhập từ nghề với các nguồn thu khác.','Phát triển hoạt động truyền dạy kỹ thuật dệt với nghệ nhân và người trẻ; khảo sát nhu cầu học nghề, điều kiện làm việc và cơ hội tạo thu nhập để nối nghề']}
 ];
 const MOA_RESULTS=[
  {title:'Điều kiện tham gia',rows:[
@@ -619,9 +664,28 @@ $('links').innerHTML=TABS.map(t=>`<button data-tab="${t[0]}" onclick="switchTab(
 $('pillars').innerHTML=PIL.map(p=>`<div class="card" style="border-left:4px solid ${p.c}"><h3 style="color:${p.c}">${p.k}. ${p.n} ${p.sub}</h3><p style="font-size:14px;font-style:italic">${p.desc}</p><ul>${ul(p.li)}</ul><div class="q">“${p.q}”</div></div>`).join('');
 $('analysis-list').innerHTML=PIL.map((p,i)=>`<div class="row ${i%2?'rev':''}"><div class="side"><h3 style="color:${p.c};margin-bottom:20px">${p.k} – ${p.analysisTitle}</h3><div class="fr arch" style="aspect-ratio:4/5;border-color:${p.c}" data-img="${p.img}"></div></div>
 <div class="body">${p.text.map((text,index)=>`<p class="t">${index===0?'&quot;':''}${text}${index===p.text.length-1?'&quot;':''}</p>`).join('')}<div class="data"><h4 style="color:${p.c}">Dữ liệu liên quan</h4><ul>${p.data.map(d=>`<li><span>${d[0]}:</span><span style="color:${p.c}">${d[1]}</span></li>`).join('')}</ul></div></div></div>`).join('');
-$('sol').innerHTML=PIL.map(p=>`<div class="card" style="border-top:4px solid ${p.c}"><div class="eyebrow" style="text-align:left;color:${p.c}">${p.k} · ${p.n}</div><h3 style="margin-top:6px">${['Đưa thông tin đến với người làm nghề','Từ thực hiện đến đề xuất','Bảo đảm tiếng nói của người trong việc quyết định','Gắn giữ nghề với sinh kế và truyền nghề'][PIL.indexOf(p)]}</h3><ul>${ul(p.sol)}</ul></div>`).join('');
+$('sol').innerHTML=PIL.map(p=>`<div class="card" style="border-top:4px solid ${p.c}"><div class="eyebrow" style="text-align:left;color:${p.c}">${p.k} · ${p.n}</div><h3 style="margin-top:6px">${['Đưa thông tin đến với người làm nghề','Từ thực hiện đến đề xuất','Bảo đảm tiếng nói của người làm nghề trong các quyết định chung','Gắn giữ nghề với sinh kế và truyền nghề'][PIL.indexOf(p)]}</h3><ul>${ul(p.sol)}</ul></div>`).join('');
 $('moa-results').innerHTML=`<div class="moa-panel"><p class="moa-scroll-hint">Vuốt ngang để xem đủ điểm của 6 người và điểm trung bình.</p><div class="moa-table-scroll" role="region" aria-label="Điều kiện tham gia MOA" tabindex="0"><table class="moa-table"><caption>Điều kiện tham gia MOA — điểm của 6 người và điểm trung bình</caption><thead><tr><th scope="col">Chỉ báo</th>${[1,2,3,4,5,6].map(n=>`<th scope="col">Người ${n}</th>`).join('')}<th scope="col">Trung bình</th></tr></thead><tbody>${MOA_RESULTS.flatMap(group=>group.rows).map(([label,values,average])=>`<tr><th scope="row">${label}</th>${values.map(value=>`<td><span class="score-chip" data-score="${value}">${value}</span></td>`).join('')}<td><div class="moa-average"><div class="moa-average-track" aria-hidden="true"><span style="width:${average/5*100}%"></span></div><strong>${average.toFixed(1).replace('.',',')}</strong></div></td></tr>`).join('')}</tbody></table></div></div>`;
 
+/* Bảng điểm P3–P4: cùng cách đọc với MOA, dùng đúng 5 người chấm. */
+function renderScoredResults(title,rows){
+ const number=n=>String(n).replace('.',',');
+ return `<div class="moa-panel"><p class="moa-scroll-hint">Vuốt ngang để xem đủ điểm của 5 người và điểm trung bình.</p><div class="moa-table-scroll" role="region" aria-label="${title}" tabindex="0"><table class="moa-table scored-table"><caption>${title} — điểm của 5 người và kết quả định tính</caption><thead><tr><th scope="col">Chỉ báo</th>${[1,2,3,4,5].map(n=>`<th scope="col">Người ${n}</th>`).join('')}<th scope="col">Trung bình / Kết quả</th></tr></thead><tbody>${rows.map(row=>{
+  if(!row.values)return `<tr><th scope="row">${row.label}</th><td colspan="6" class="qualitative-result"><span class="result-status">${row.status}</span><span class="result-source">${row.source}</span></td></tr>`;
+  const total=row.values.reduce((sum,value)=>sum+value,0),average=total/row.values.length;
+  return `<tr><th scope="row">${row.label}</th>${row.values.map(value=>`<td><span class="score-chip" data-score="${Math.floor(value)}">${number(value)}</span></td>`).join('')}<td><div class="moa-average"><div class="moa-average-track" aria-hidden="true"><span style="width:${average/5*100}%"></span></div><strong>${average.toFixed(1).replace('.',',')}</strong></div></td></tr>`;
+ }).join('')}</tbody></table></div></div>`;
+}
+$('governance-results').innerHTML=renderScoredResults('Quản trị và quyền lực',[
+ {label:'Ảnh hưởng đến quyết định quy hoạch',values:[2,2,2,3,3]},
+ {label:'Niềm tin vào Ban quản lý và đối tác liên kết',values:[3,3,3,4,3.5]},
+ {label:'Tiếng nói của phụ nữ và thợ lớn tuổi',status:'Thấp — đánh giá định tính',source:'Theo phân tích 6 biên bản họp và 2 nhóm thảo luận, lượt phát biểu còn hạn chế so với vai trò thực tế trong nghề dệt.'}
+]);
+$('sustainability-results').innerHTML=renderScoredResults('Tác động bền vững',[
+ {label:'Hài lòng chung của cư dân',values:[3,3,4,4,3]},
+ {label:'Thu nhập từ nghề',status:'Chưa có số liệu định lượng',source:'Theo chia sẻ của nghệ nhân, thu nhập chủ yếu tính theo sản phẩm và đủ trang trải cuộc sống cơ bản. Chưa xác định được mức thu nhập cụ thể hoặc mức tăng thu nhập.'},
+ {label:'Thợ trẻ học và giữ nghề',status:'Còn rất ít — ghi nhận định tính',source:'Lao động dưới 35 tuổi tham gia học và giữ nghề còn ít; chưa có tỷ lệ cụ thể.'}
+]);
 /* ảnh: tự thử nhiều tên/đuôi file, báo lỗi rõ nếu vẫn không thấy */
 function variants(file){
  const m=file.match(/^(.*)\.(\w+)$/), base=m?m[1]:file;
